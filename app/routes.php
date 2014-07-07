@@ -191,7 +191,7 @@ foreach ($files as $file) {
 
     $file_name = basename($file);
     $tmp_module_name = $module_name = str_replace($postfix, "", $file_name);
-    
+
     if (strpos($module_name, ".")) {
         $blocks = explode(".", $module_name);
         foreach ($blocks as $b => $block) {
