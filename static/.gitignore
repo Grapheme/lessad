@@ -3,7 +3,4 @@ public/uploads
 vendor
 composer.phar
 composer.lock
-.DS_Store
-
 .htaccess
-Thumbs.dbl
