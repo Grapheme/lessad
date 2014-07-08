@@ -11,7 +11,7 @@ App::after(function($request, $response){
 App::error(function(Exception $exception, $code){
 
 	switch($code):
-		case 403: return 'Access denied!';
+		case 403: return $exception->getMessage();
 		case 404:
 			if(Page::where('seo_url','404')->exists()):
 				return spage::show('404',array('message'=>$exception->getMessage()));
