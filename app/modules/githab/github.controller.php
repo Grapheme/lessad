@@ -20,8 +20,8 @@ class GithubController extends \BaseController {
     public static function returnRoutes($prefix = null) {
 
         $class = __CLASS__;
-        Route::get('git-deploy/{git_branch}',$class.'@gitDeployProject');
-        Route::get('git-deploy/{git_branch}/{extends}',$class.'@gitDeployProject');
+        Route::any('git-deploy/{git_branch}',$class.'@gitDeployProject');
+        Route::any('git-deploy/{git_branch}/{extends}',$class.'@gitDeployProject');
     }
 
     public static function returnExtFormElements() {
