@@ -51,7 +51,7 @@ class GithubController extends \BaseController {
         $config['remote'] = 'origin';
         $config['branch'] = $git_branch;
         $config['repository_name'] = 'lessad';
-        $config['repository_id'] = 12582611;
+        $config['repository_id'] = 21561647;
         $config['user_group'] = 'www-data';
         $config['user_name'] = 'www-data';
         $config['set_log'] = TRUE;
