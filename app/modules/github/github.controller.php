@@ -43,6 +43,7 @@ class GithubController extends \BaseController {
 
         $config = Config::get('github');
         $config['branch'] = $git_branch;
+        $config['post_data'] = Input::get('payload');
 
         if ($config['active'] === FALSE):
             return App::abort(403,'Модуль отключен');
