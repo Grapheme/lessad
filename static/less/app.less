@@ -32,6 +32,7 @@
 }
 
 .us-btn {
+	.transition;
 	display: inline-block;
 	padding: 0 50rem / @htmlFontSize;
 	font-size: 26rem / @htmlFontSize;
@@ -42,6 +43,13 @@
 	line-height: 70rem / @htmlFontSize;
 	background: #4b523f;
 	border-radius: 3rem / @htmlFontSize;
+	border: 1px solid #4b523f;
+
+	&:hover {
+		.transition(all, .25s);
+		color: #4b523f;
+		background: #fff;
+	}
 }
 
 header {
@@ -75,14 +83,25 @@ header {
 				text-decoration: none;
 				color: #343434;
 				line-height: 30rem / @htmlFontSize;
+				padding-right: 20rem / @htmlFontSize;
+				padding-left: 20rem / @htmlFontSize;
 			}
 
 			li {
 				display: inline-block;
-				margin-right: 40rem / @htmlFontSize;
+
+				&:first-child {
+					a {
+						padding-left: 0;
+					}
+				}
 
 				&:last-child {
 					margin-right: 0;
+
+					a {
+						padding-right: 0;
+					}
 				}
 			}
 		}
@@ -94,6 +113,7 @@ header {
 		background: #c0c0c0;
 
 		.line {
+			.transition;
 			position: absolute;
 			left: 0;
 			top: -1px;

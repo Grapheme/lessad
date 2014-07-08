@@ -173,6 +173,8 @@ textarea {
   padding: 1.25rem 0 1.25rem;
 }
 .us-btn {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   display: inline-block;
   padding: 0 3.125rem;
   font-size: 1.625rem;
@@ -183,6 +185,13 @@ textarea {
   line-height: 4.375rem;
   background: #4b523f;
   border-radius: 0.1875rem;
+  border: 1px solid #4b523f;
+}
+.us-btn:hover {
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  color: #4b523f;
+  background: #fff;
 }
 header {
   position: relative;
@@ -213,13 +222,20 @@ header .nav-main ul a {
   text-decoration: none;
   color: #343434;
   line-height: 1.875rem;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
 }
 header .nav-main ul li {
   display: inline-block;
-  margin-right: 2.5rem;
+}
+header .nav-main ul li:first-child a {
+  padding-left: 0;
 }
 header .nav-main ul li:last-child {
   margin-right: 0;
+}
+header .nav-main ul li:last-child a {
+  padding-right: 0;
 }
 header .nav-line {
   position: relative;
@@ -227,6 +243,8 @@ header .nav-line {
   background: #c0c0c0;
 }
 header .nav-line .line {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   position: absolute;
   left: 0;
   top: -1px;
