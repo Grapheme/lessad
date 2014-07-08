@@ -59,7 +59,7 @@ class GithubController extends \BaseController {
         $github = new GitHub();
         $github->init($config);
         if($extends == 'test'):
-            echo $github->testConnect('sudo /usr/bin/ssh -T git@github.com');
+            echo $github->testConnect('/usr/bin/ssh -T git@github.com');
         else:
             echo $github->execute('git reset --hard HEAD');
             echo "\n";

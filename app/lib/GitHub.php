@@ -7,7 +7,7 @@
 *	sudo chmod -R 0744 /ПУТЬ К ПРОЕКТУ
 *	Вернуть требуемые права на папки, к примеру downloads 
 *	Проверить работу от имени владельца, к примеру www-data
-*	sudo --user=www-data git pull
+*	sudo user=www-data git pull
 *
 */
 
