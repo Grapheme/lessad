@@ -42,11 +42,12 @@ class GithubController extends \BaseController {
     public function gitDeployProject($git_branch,$extends = null){
 
         $config = Config::get('github');
+        $config['branch'] = $git_branch;
+
         if ($config['active'] === FALSE):
             return App::abort(403,'Модуль отключен');
         endif;
-
-        if($extends == $config['test_mode_key']):
+        if($config['test_mode_key'] == $extends):
             $config['test_mode'] = TRUE;
         else:
             $config['test_mode'] = FALSE;
