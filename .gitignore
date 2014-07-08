@@ -1,5 +1,5 @@
 .idea
-!public/uploads
+public/uploads
 vendor
 composer.phar
 composer.lock
