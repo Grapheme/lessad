@@ -13,8 +13,6 @@
 
 class GitHub {
 
-    private $CI;
-
     protected $test_mode;
     protected $post;
 
@@ -32,7 +30,6 @@ class GitHub {
 
     function __construct(){
 
-        $this->CI = & get_instance();
     }
 
     public function init($params){
@@ -97,15 +94,12 @@ class GitHub {
         endif;
 
         try {
-            //chown(getcwd().$path, $this->user_name);
-            //chgrp(getcwd().$path, $this->user_group);
             system("/bin/chown -R ".$this->user_name." ".getcwd().$path);
             system("/bin/chgrp -R ".$this->user_name." ".getcwd().$path);
         } catch (Exception $e) {
             return 'Ошибка при смене владельца';
         }
         try {
-//			chmod(getcwd().$path,$mode);
             system("/bin/chmod -R ".$mode." ".getcwd().$path);
         } catch (Exception $e) {
             return 'Ошибка при смене прав доступа';
@@ -117,7 +111,7 @@ class GitHub {
         try {
             exec($command.' 2>&1',$result,$returnCode);
             echo "\nResult:\n"; print_r($result);
-            echo "\Code:\n"; print_r($returnCode);
+            echo "\nCode:\n"; print_r($returnCode);
         } catch (Exception $e) {
 
         }
@@ -130,8 +124,7 @@ class GitHub {
         endif;
 
         if(!$this->permission()):
-            header('HTTP/1.0 403 Forbidden');
-            return 'В доступе отказано';
+            return App::abort(403, 'В доступе отказано');
         endif;
         try {
             exec($this->git_path.$command.' 2>&1',$result,$returnCode);
@@ -142,9 +135,6 @@ class GitHub {
             echo "\ncommand:\n".$command;
             echo "\nResult:\n"; print_r($result);
             echo "\Code:\n"; print_r($returnCode);
-            $this->CI->config->set_item('log_threshold',2);
-            log_message('info','Выполнилась комманда '.$command.' Дата выполнения: '.date("d.m.Y H:i:s"));
-            $this->CI->config->set_item('log_threshold',0);
         endif;
         return TRUE;
     }
@@ -152,8 +142,7 @@ class GitHub {
     public function pull(){
 
         if(!$this->permission()):
-            header('HTTP/1.0 403 Forbidden');
-            return 'В доступе отказано';
+            return App::abort(403, 'В доступе отказано');
         endif;
 
         try {

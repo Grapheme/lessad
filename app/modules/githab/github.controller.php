@@ -21,6 +21,7 @@ class GithubController extends \BaseController {
 
         $class = __CLASS__;
         Route::get('git-deploy/{git_branch}',$class.'@gitDeployProject');
+        Route::get('git-deploy/{git_branch}/{extends}',$class.'@gitDeployProject');
     }
 
     public static function returnExtFormElements() {
@@ -38,9 +39,9 @@ class GithubController extends \BaseController {
         return TRUE;
     }
 
-    public function gitDeployProject($git_branch){
+    public function gitDeployProject($git_branch,$extends = null){
 
-        if($this->uri->segment(3) == 'xBh4Wy7Y0Jbdmr97QTogVvMOirn2AOgq'):
+        if($extends == 'xBh4Wy7Y0Jbdmr97QTogVvMOirn2AOgq'):
             $config['test_mode'] = TRUE;
         else:
             $config['test_mode'] = FALSE;
@@ -48,7 +49,7 @@ class GithubController extends \BaseController {
         $config['post_data'] = Input::get('payload');
         $config['git_path'] = '/usr/bin/';
         $config['remote'] = 'origin';
-        $config['branch'] = Request::segment(2);
+        $config['branch'] = $git_branch;
         $config['repository_name'] = 'lessad';
         $config['repository_id'] = 12582611;
         $config['user_group'] = 'www-data';
@@ -56,9 +57,9 @@ class GithubController extends \BaseController {
         $config['set_log'] = TRUE;
 
         $github = new GitHub();
-        $github->int($config);
-        if(Request::segment(3) == 'test'):
-            echo $this->git->testConnect('/usr/bin/ssh -T git@github.com');
+        $github->init($config);
+        if($extends == 'test'):
+            echo $github->testConnect('/usr/bin/ssh -T git@github.com');
         else:
             echo $github->execute('git reset --hard HEAD');
             echo "\n";
@@ -66,9 +67,8 @@ class GithubController extends \BaseController {
             echo "\n";
             echo $github->setAccessMode();
             echo "\n";
-            echo $github->setAccessMode('/diskspace','0777');
-            echo $github->setAccessMode('/temporary','0777');
-            echo $github->setAccessMode('/application/logs','0777');
+            echo $github->setAccessMode('/public/uploads','0777');
+            echo $github->setAccessMode('/app/storage','0777');
         endif;
     }
 }
