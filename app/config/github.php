@@ -11,5 +11,6 @@ return array(
     'repository_id'     => 21561647,
     'user_group'        => 'www-data',
     'user_name'         => 'www-data',
-    'set_log'           => TRUE
+    'set_log'           => TRUE,
+    'directories'       => array('/public/uploads','/app/storage')
 );

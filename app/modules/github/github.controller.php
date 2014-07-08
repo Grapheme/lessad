@@ -64,8 +64,9 @@ class GithubController extends \BaseController {
             echo "\n";
             echo $github->setAccessMode();
             echo "\n";
-            echo $github->setAccessMode('/public/uploads','0777');
-            echo $github->setAccessMode('/app/storage','0777');
+            foreach ($config['directories'] as $directory):
+                 echo $github->setAccessMode($directory,'0777');
+            endforeach;
         endif;
     }
 }
