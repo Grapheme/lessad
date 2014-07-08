@@ -244,7 +244,7 @@ header .nav-line .line {
   display: inline-block;
   width: 4.0625rem;
   height: 4.0625rem;
-  background: url(../img/search) no-repeat center center / 2.5rem 2.0625rem #f5f5f5;
+  background: url(../img/search.png) no-repeat center center / 2.5rem 2.0625rem #f5f5f5;
 }
 .main-info {
   position: relative;
@@ -459,11 +459,11 @@ footer .footer-bottom .ftr-link {
 }
 .info-slider .slider-prev {
   left: 0;
-  background: url(../img/slider-prev) no-repeat center center / 1.1875rem 2.1875rem #f5f5f5;
+  background: url(../img/slider-prev.png) no-repeat center center / 1.1875rem 2.1875rem #f5f5f5;
 }
 .info-slider .slider-next {
   right: 0;
-  background: url(../img/slider-next) no-repeat center center / 1.1875rem 2.25rem #f5f5f5;
+  background: url(../img/slider-next.png) no-repeat center center / 1.1875rem 2.25rem #f5f5f5;
 }
 /* ==========================================================================
    Helper classes

@@ -35,7 +35,7 @@
 				<tbody>
 				@foreach($pages as $page)
 					<tr>
-						<td>{{ $page->slug ? $page->slug : "Главная страница" }}</td>
+						<td>{{ $page->metas->first()->name }}</td>
 						<td class="wigth-250 text-center">
 						@if($page->start_page == 1)
 							<a href="{{ link::to($page->seo_url) }}" target="_blank">На главную</a>

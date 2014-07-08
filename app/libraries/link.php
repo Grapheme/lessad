@@ -46,7 +46,6 @@ class link {
 		}
 	}
 
-
 	public static function auth($link = NULL){
 
 

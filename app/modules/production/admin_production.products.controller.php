@@ -85,7 +85,7 @@ class AdminProductionProductsController extends BaseController {
 
                 #Helper::dd($value);
 
-                return View::make($mod_tpl.$tpl, compact('name', 'value', 'products', 'params'));                
+                return View::make($mod_tpl.$tpl, compact('name', 'value', 'products', 'params'));
     	    },
             ## Processing results closure
             function($params) use ($mod_tpl, $class) {
@@ -120,7 +120,7 @@ class AdminProductionProductsController extends BaseController {
     public static function returnInfo() {
         #
     }
-    
+
     /****************************************************************************/
 
 	public function __construct(){
@@ -149,7 +149,7 @@ class AdminProductionProductsController extends BaseController {
         $cat = Input::get('cat');
 		$products = new Product;
         $products = is_numeric($cat) ? $products->where('category_id', $cat)->paginate($limit) : $products->paginate($limit);
-        
+
 		return View::make($this->module['tpl'].'index', compact('products', 'categories', 'cat', 'category'));
 	}
 
@@ -175,7 +175,7 @@ class AdminProductionProductsController extends BaseController {
         Allow::permission($this->module['group'], 'product_create');
 
 		$json_request = array('status'=>FALSE, 'responseText'=>'', 'responseErrorText'=>'', 'redirect'=>FALSE);
-		
+
 		$input = array(
             'title' => Input::get('title'),
             'category_id' => Input::get('category_id'),
@@ -193,7 +193,7 @@ class AdminProductionProductsController extends BaseController {
             $input['image_id'] = $image_id;
         }
         ################################################
-        
+
 		$validation = Validator::make($input, Product::$rules);
 		if($validation->passes()) {
 
@@ -236,13 +236,13 @@ class AdminProductionProductsController extends BaseController {
 
 		$json_request = array('status'=>FALSE, 'responseText'=>'', 'responseErrorText'=>'', 'redirect'=>FALSE);
 		if(!Request::ajax())
-            return App::abort(404);        
+            return App::abort(404);
 
 		if(!$product = Product::find($id)) {
 			$json_request['responseText'] = 'Запрашиваемый продукт не найден!';
 			return Response::json($json_request, 400);
 		}
-        
+
         $input = array(
             'title' => Input::get('title'),
             'category_id' => Input::get('category_id'),
@@ -265,7 +265,7 @@ class AdminProductionProductsController extends BaseController {
 		if($validation->passes()):
 
 			$product->update($input);
-            
+
 			$json_request['responseText'] = 'Продукт обновлен';
 			#$json_request['responseText'] = print_r($group_id, 1);
 			#$json_request['responseText'] = print_r($group, 1);
@@ -277,7 +277,7 @@ class AdminProductionProductsController extends BaseController {
 			$json_request['responseText'] = 'Неверно заполнены поля';
 			$json_request['responseErrorText'] = implode($validation->messages()->all(), '<br />');
 		endif;
-        
+
 		return Response::json($json_request, 200);
 	}
 

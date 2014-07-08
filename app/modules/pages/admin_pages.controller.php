@@ -76,7 +76,9 @@ class AdminPagesController extends BaseController {
         Allow::permission($this->module['name'], 'view');
 
 		#$pages = $this->page->all();
-		$pages = $this->page->orderBy('start_page', 'DESC')->get();
+//		$pages = $this->page->orderBy('start_page', 'DESC')->get();
+        $pages = $this->page->orderBy('start_page', 'DESC')->with(array('metas'=>function($query){$query->where('language',Config::get('app.locale'));}))->get();
+
 		#return View::make('modules.pages.index',compact('pages'));
 		return View::make($this->module['tpl'].'index',array('pages' => $pages, 'locales' => $this->locales));
 	}

@@ -8,17 +8,17 @@
 	@yield('style')
 </head>
 <body>
-	<!--[if lt IE 7]>
-	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
-
-	@include('templates.default.header')
-
-    <div id="content" style="margin: 20px;">
-	   @yield('content', @$content)
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+    <div class="wrapper-full main-page">
+        @include('templates.default.header')
+        <main>
+           @yield('content', @$content)
+        </main>
+        @include('templates.default.footer')
     </div>
-
-	@include('templates.default.footer')
 	@include('templates.default.scripts')
 	@yield('scripts')
 </body>
