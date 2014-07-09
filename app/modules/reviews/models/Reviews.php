@@ -11,4 +11,9 @@ class Reviews extends BaseModel {
     public static $rules = array(
         'name' => 'required'
     );
+
+    public function photo() {
+
+        return $this->hasOne('Photo','id','image_id');
+    }
 }

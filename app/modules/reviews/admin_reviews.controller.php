@@ -106,42 +106,25 @@ class AdminReviewsController extends BaseController {
 
     public function getEdit($id){
 
-        $this->moduleActionPermission('news','edit');
-        $news = $this->news->find($id);
-        if(is_null($news))
+        $this->moduleActionPermission('reviews','edit');
+        if(!$review = $this->review->find($id)):
             return App::abort(404);
-        #print_r($page);
-
-        $metas = $this->news_meta->where('news_id', $news->id)->get();
-        if(is_null($metas))
-            return App::abort(404);
-
-        foreach ($metas as $m => $meta) {
-            $news_meta[$meta->language] = $meta;
-        }
-        #print_r($news_meta);
-
-        $gall = Rel_mod_gallery::where('module', 'news')->where('unit_id', $id)->first();
-        #print_r($gall->photos);
-
-        return View::make($this->tpl.'edit', array('news'=>$news, 'news_meta'=>@$news_meta, 'locales' => $this->locales, 'gall' => $gall));
+        endif;
+        $gall = Rel_mod_gallery::where('module','reviews')->where('unit_id', $id)->first();
+        return View::make($this->tpl.'edit', array('review'=>$review, 'locales' => $this->locales, 'gall' => $gall));
     }
 
     public function postUpdate($id){
 
-        $this->moduleActionPermission('news','edit');
+        $this->moduleActionPermission('reviews','edit');
         $json_request = array('status'=>FALSE,'responseText'=>'','responseErrorText'=>'','redirect'=>FALSE);
         if(Request::ajax()):
-            $validator = Validator::make(Input::all(), I18nNews::$rules);
+            $validator = Validator::make(Input::all(), Reviews::$rules);
             if($validator->passes()):
-
-                #$json_request['responseText'] = "<pre>" . print_r($_POST, 1) . "</pre>";
-                #return Response::json($json_request,200);
-
-                $news = $this->news->find($id);
-                self::saveNewsModel($news);
-                $json_request['responseText'] = 'Новость сохранена';
-                $json_request['redirect'] = link::auth('news');
+                $review = $this->review->find($id);
+                self::saveReviewModel($review);
+                $json_request['responseText'] = 'Отзыв сохранен';
+                $json_request['redirect'] = link::auth('reviews');
                 $json_request['status'] = TRUE;
             else:
                 $json_request['responseText'] = 'Неверно заполнены поля';
@@ -199,18 +182,10 @@ class AdminReviewsController extends BaseController {
         $review->position = Input::get('position.'.$locale);
         $review->content = Input::get('content.'.$locale);
         $review->slug = $slug;
+        $review->image_id =  Input::get('image');
         ## Сохраняем в БД
         $review->save();
         $review->touch();
-
-
-        ## Работа с загруженными изображениями
-        $images = @Input::get('uploaded_images');
-        $gallery_id = @Input::get('gallery_id');
-        if (@count($images)) {
-            GalleriesController::imagesToUnit($images, 'reviews', $review->id, $gallery_id);
-        }
-
         return $review->id;
     }
 

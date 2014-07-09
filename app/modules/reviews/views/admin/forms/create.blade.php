@@ -4,17 +4,19 @@
 <div class="well">
     <header>Для создания отзыва заполните форму:</header>
     <fieldset>
-
-        <section>
-            <label class="label">
-                Идентификатор отзыва
-                <div class="note">Может содержать <strong>только</strong> английские буквы в нижнем регистре, цифры, знаки подчеркивания и тире</div>
-            </label>
-            <label class="input col-5"> <i class="icon-append fa fa-list-alt"></i>
+        <section class="col col-6">
+            <label class="label">Идентификатор отзыва</label>
+            <label class="input col-11"> <i class="icon-append fa fa-list-alt"></i>
                 {{ Form::text('slug','') }}
             </label>
+            <div class="note">Может содержать <strong>только</strong> английские буквы в нижнем регистре, цифры, знаки подчеркивания и тире</div>
         </section>
-
+        <section class="col col-3">
+            <label class="label">Дата публикации:</label>
+            <label class="input col-3">
+                <input type="text" name="published_at" value="<?=date('d.m.Y')?>" class="datepicker" />
+            </label>
+        </section>
         @if(Allow::module('templates'))
         <section>
             <label class="label">Шаблон отзыва:</label>
@@ -26,14 +28,6 @@
             </label>
         </section>
         @endif
-
-        <section>
-            <label class="label">Дата публикации:</label>
-            <label class="select col-5">
-                <input type="text" name="published_at" value="<?=date('d.m.Y')?>" class="datepicker" />
-            </label>
-        </section>
-
     </fieldset>
 </div>
 

@@ -41,7 +41,7 @@
                 @endif
                 <td class="wigth-250">
                     @if(Allow::action('news', 'edit'))
-                    <a class="btn btn-default pull-left margin-right-10" href="{{ link::auth('revieww/edit/'.$review->id) }}">
+                    <a class="btn btn-default pull-left margin-right-10" href="{{ link::auth('reviews/edit/'.$review->id) }}">
                         Редактировать
                     </a>
                     @endif
