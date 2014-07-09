@@ -73,7 +73,7 @@ class AdminReviewsController extends BaseController {
 
     public function getIndex(){
 
-        $reviews = $this->review->orderBy('published_at', 'DESC')->get();
+        $reviews = $this->review->orderBy('published_at', 'DESC')->orderBy('id','DESC')->get();
         return View::make($this->tpl.'index', array('reviews' => $reviews, 'locales' => $this->locales));
     }
 
