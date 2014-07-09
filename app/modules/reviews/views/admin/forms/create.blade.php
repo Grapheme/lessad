@@ -69,7 +69,7 @@
                         <section>
                             <label class="label">Изображение</label>
                             <label class="input">
-                                {{ ExtForm::image('photo', '') }}
+                                {{ ExtForm::image('image', '') }}
                             </label>
                         </section>
                         @endif
