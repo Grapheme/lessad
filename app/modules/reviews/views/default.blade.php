@@ -1,4 +1,3 @@
-
 <div class="feedback">
     <div class="wrapper">
         <div class="block-title">Отзывы</div>

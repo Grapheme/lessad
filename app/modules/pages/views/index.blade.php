@@ -4,7 +4,8 @@
 @stop
 
 @section('content')
-    {{ $content }}
+{{ $content }}
+@include('reviews/views/default')
 @stop
 @section('scripts')
 @stop

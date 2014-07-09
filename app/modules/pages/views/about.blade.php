@@ -4,7 +4,8 @@
 @stop
 
 @section('content')
-    {{ $content }}
+{{ $content }}
 @stop
+
 @section('scripts')
 @stop
