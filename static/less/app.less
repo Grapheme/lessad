@@ -24,11 +24,27 @@
 	}
 }
 
+.us-title {
+	font-size: 42rem / @htmlFontSize;
+	font-family: "gotha_bold";
+	text-transform: uppercase;
+}
+
+.mar-title {
+	padding-bottom: 60rem / @htmlFontSize;
+	padding-top: 90rem / @htmlFontSize;
+}
+
 .block-title {
 	font-size: 34rem / @htmlFontSize;
 	font-family: "gotha_bold";
 	text-transform: uppercase;
 	padding: 20rem / @htmlFontSize 0 20rem / @htmlFontSize;
+}
+
+.us-text {
+	font-size: 18rem / @htmlFontSize;
+	line-height: 24rem / @htmlFontSize;
 }
 
 .us-btn {
@@ -134,7 +150,7 @@ header {
 		display: inline-block;
 		width: 65rem / @htmlFontSize;
 		height: 65rem / @htmlFontSize;
-		background: url(../img/search) no-repeat center center e('/') 40rem / @htmlFontSize 33rem / @htmlFontSize #f5f5f5;
+		background: url(../img/search.png) no-repeat center center e('/') 40rem / @htmlFontSize 33rem / @htmlFontSize #f5f5f5;
 	}
 }
 
@@ -284,6 +300,7 @@ header {
 }
 
 footer {
+	border-top: 1px solid #e8e8e8;
 	padding: 30rem / @htmlFontSize 0 25rem / @htmlFontSize;
 	font-size: 13rem / @htmlFontSize;
 	color: #343434;
@@ -391,5 +408,208 @@ footer {
 	.slider-next {
 		right: 0;
 		background: url(../img/slider-next) no-repeat center center e('/') 19rem / @htmlFontSize 36rem / @htmlFontSize #f5f5f5;
+	}
+}
+
+.about-top {
+	margin-top: 100rem / @htmlFontSize;
+	height: 1230rem / @htmlFontSize;
+
+	.title {
+		font-size: 42rem / @htmlFontSize;
+		font-family: "gotha_bold";
+		text-transform: uppercase;
+		//padding: 20rem / @htmlFontSize 0 20rem / @htmlFontSize;
+	}
+
+	.about-block {
+		width: 685rem / @htmlFontSize;
+	}
+
+	.about-text {
+		margin-bottom: 85rem / @htmlFontSize;
+		width: 600rem / @htmlFontSize;
+	}
+
+	.about-list {
+		padding: 0 40rem / @htmlFontSize 0 0;
+		list-style: none;
+		font-size: 18rem / @htmlFontSize;
+		line-height: 38rem / @htmlFontSize;
+
+		li {
+			position: relative;
+			padding-left: 22rem / @htmlFontSize;
+
+			&:before {
+				content: "";
+				position: absolute;
+				left: 2rem / @htmlFontSize;
+				top: 50%;
+				background: #5d7e39;
+				width: 7rem / @htmlFontSize;
+				height: 7rem / @htmlFontSize;
+				border-radius: 7rem / 2 / @htmlFontSize;
+				margin-top: -7rem / 2 / @htmlFontSize;
+			}
+		}
+	}
+
+	.abs-block {
+		position: absolute;
+		bottom: 100rem / @htmlFontSize;
+		right: 0;
+	}
+
+	.about-poem {
+		position: absolute;
+		right: 0;
+		top: 20rem / @htmlFontSize;
+		font-style: italic;
+		font-size: 31rem / @htmlFontSize;
+		color: #959595;
+
+		span:first-child {
+			margin-right: 100rem / @htmlFontSize;
+		}
+
+		span:last-child {
+			margin-left: 40rem / @htmlFontSize;
+		}
+	}
+}
+
+.about-img-pen {
+	position: absolute;
+	left: 900rem / @htmlFontSize;
+	top: 220rem / @htmlFontSize;
+	width: 544rem / @htmlFontSize;
+	height: 623rem / @htmlFontSize;
+	background: url(../img/about-pen.jpg) no-repeat 0 0 e('/') 100% 100%;
+}
+
+.about-img-tree {
+	position: absolute;
+	right: 745rem / @htmlFontSize;
+	top: 665rem / @htmlFontSize;
+	width: 666rem / @htmlFontSize;
+	height: 507rem / @htmlFontSize;
+	background: url(../img/about-tree.jpg) no-repeat 0 0 e('/') 100% 100%;
+}
+
+.about-img-stick {
+	position: absolute;
+	top: 60rem / @htmlFontSize;
+	left: 1050rem / @htmlFontSize;
+	width: 369rem / @htmlFontSize;
+	height: 688rem / @htmlFontSize;
+	background: url(../img/about-stick.jpg) no-repeat 0 0 e('/') 100% auto;
+}
+
+.about-docs {
+	background: #e8e8e8;
+	padding: 0 0 60rem / @htmlFontSize;
+
+	.documents {
+		.unstyled-list;
+
+		li {
+			.box-sizing;
+			display: inline-block;
+			vertical-align: top;
+			width: 370rem / @htmlFontSize;
+			margin-right: 65rem / @htmlFontSize;
+
+			&:nth-of-type(3n) {
+				margin-right: 0;
+			}
+		}
+
+		.doc-photo {
+			position: relative;
+			height: 500rem / @htmlFontSize;
+
+			.doc-img {
+				position: absolute;
+				top: 0; left: 0; right: 0; bottom: 0;
+				background-size: auto 100%;
+				background-position: left center;
+				background-repeat: no-repeat;
+				z-index: 2
+			}
+		}
+
+		.doc-name {
+			font-weight: 600;
+			font-size: 21rem / @htmlFontSize;
+			line-height: 22rem / @htmlFontSize;
+			margin-top: 50rem / @htmlFontSize;
+		}
+
+		.doc-size {
+			font-size: 21rem / @htmlFontSize;
+			margin-top: 5rem / @htmlFontSize;
+			color: #6a6a6a;
+		}
+
+		.doc-type {
+
+			position: absolute;
+			bottom: 45rem / @htmlFontSize;
+				right: -5rem / @htmlFontSize;
+
+			span {
+				position: relative;
+				font-family: 'gotha_med';
+				font-size: 40rem / @htmlFontSize;
+				height: 50rem / @htmlFontSize;
+				line-height: 55rem / @htmlFontSize;
+				display: inline-block;
+				background: #3c82c9;
+				padding: 0 20rem / @htmlFontSize;
+				color: #fff;
+				z-index: 3;
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				height: 54rem / @htmlFontSize;
+				width: 50rem / @htmlFontSize;
+				background: #326093;
+				right: 0;
+				.transform(skew(-30deg) rotate(-30deg));
+				.transform-o(100% 50%);
+				z-index: 1;
+			}
+		}
+	}
+}
+
+.about-posts {
+	position: relative;
+
+	.post-ul {
+		.unstyled-list;
+
+		li {
+			margin-top: 80rem / @htmlFontSize;
+			width: 900rem / @htmlFontSize;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+		.title {
+			font-size: 24rem / @htmlFontSize;
+			color: #000;
+			text-decoration: none;
+		}
+
+		.desc {
+			margin-top: 20rem / @htmlFontSize;
+			font-size: 18rem / @htmlFontSize;
+		}
 	}
 }
