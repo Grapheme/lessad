@@ -15,6 +15,11 @@
 	        transform: @val;
 }
 
+.transform-o(@val) {
+	-webkit-transform-origin: @val;
+	        transform-origin: @val;
+}
+
 .transition(@elem: all, @time: .5s, @ease: ease) {
 	-webkit-transition: @elem @time @ease;
 	        transition: @elem @time @ease;
