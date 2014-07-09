@@ -24,6 +24,20 @@
 	}
 }
 
+h1 {
+	font-size: 42rem / @htmlFontSize;
+	font-family: "gotha_bold";
+	line-height: 50rem / @htmlFontSize;
+}
+
+h2 {
+	font-size: 24rem / @htmlFontSize;
+	font-family: "proxima";
+	font-weight: 600;
+	margin: 10rem / @htmlFontSize 0;
+	line-height: 24rem / @htmlFontSize;
+}
+
 .us-title {
 	font-size: 42rem / @htmlFontSize;
 	font-family: "gotha_bold";
@@ -485,7 +499,7 @@ footer {
 	top: 220rem / @htmlFontSize;
 	width: 544rem / @htmlFontSize;
 	height: 623rem / @htmlFontSize;
-	background: url(../img/about-pen.jpg) no-repeat 0 0 e('/') 100% 100%;
+	background: url(../img/about-pen.png) no-repeat 0 0 e('/') 100% 100%;
 }
 
 .about-img-tree {
@@ -494,7 +508,7 @@ footer {
 	top: 665rem / @htmlFontSize;
 	width: 666rem / @htmlFontSize;
 	height: 507rem / @htmlFontSize;
-	background: url(../img/about-tree.jpg) no-repeat 0 0 e('/') 100% 100%;
+	background: url(../img/about-tree.png) no-repeat 0 0 e('/') 100% 100%;
 }
 
 .about-img-stick {
@@ -503,7 +517,7 @@ footer {
 	left: 1050rem / @htmlFontSize;
 	width: 369rem / @htmlFontSize;
 	height: 688rem / @htmlFontSize;
-	background: url(../img/about-stick.jpg) no-repeat 0 0 e('/') 100% auto;
+	background: url(../img/about-stick.png) no-repeat 0 0 e('/') 100% auto;
 }
 
 .about-docs {
@@ -588,13 +602,14 @@ footer {
 
 .about-posts {
 	position: relative;
+	padding-bottom: 100rem / @htmlFontSize;
 
 	.post-ul {
 		.unstyled-list;
 
 		li {
 			margin-top: 80rem / @htmlFontSize;
-			width: 900rem / @htmlFontSize;
+			width: 850rem / @htmlFontSize;
 
 			&:first-child {
 				margin-top: 0;
@@ -611,5 +626,67 @@ footer {
 			margin-top: 20rem / @htmlFontSize;
 			font-size: 18rem / @htmlFontSize;
 		}
+	}
+
+	.post-link {
+		display: inline-block;
+		margin-top: 55rem / @htmlFontSize;
+		font-size: 27rem / @htmlFontSize;
+		text-transform: uppercase;
+		color: #5d7e39;
+		text-decoration: none;
+
+		&:after {
+			content: '\e800';
+			font-family: "fontello";
+			margin-left: 35rem / @htmlFontSize;
+		}
+	}
+
+	.parallax {
+		.par-item:nth-of-type(1) {
+			position: absolute;
+			width: 176rem / @htmlFontSize;
+			height: 131rem / @htmlFontSize;
+			top: 400rem / @htmlFontSize;
+			right: 200rem / @htmlFontSize;
+			background: url(../img/about-par1.png) no-repeat 0 0 e('/') 100% auto;
+		}
+
+		.par-item:nth-of-type(2) {
+			position: absolute;
+			width: 72rem / @htmlFontSize;
+			height: 73rem / @htmlFontSize;
+			top: 90rem / @htmlFontSize;
+			right: 235rem / @htmlFontSize;
+			background: url(../img/about-par2.png) no-repeat 0 0 e('/') 100% auto;
+		}
+	}
+}
+
+.us-block {
+	margin-top: 120rem / @htmlFontSize;
+
+	.us-title {
+		margin-bottom: 35rem / @htmlFontSize;
+	}
+
+	#map-block {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: 760rem / @htmlFontSize;
+		height: 500rem / @htmlFontSize;
+	}
+
+	.contact-block {
+		display: inline-block;
+		vertical-align: top;
+		width: 400rem / @htmlFontSize;
+		margin-left: 75rem / @htmlFontSize;
+	}
+
+	.contact-text {
+		margin-bottom: 50rem / @htmlFontSize;
 	}
 }

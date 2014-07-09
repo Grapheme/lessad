@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="wrapper-full">
+            <header>
+                <div class="search">
+                    <a href="#" class="search-icon"></a>
+                </div>
+                <div class="wrapper">
+                    <a href="#" class="logo"></a>
+                    <div class="nav-container">
+                        <nav class="nav-main">
+                            <ul>
+                                <li><a href="#" class="active">О компании</a>
+                                <li><a href="#">Продукция</a>
+                                <li><a href="#">Опыт</a>
+                                <li><a href="#">Контакты</a>
+                            </ul>
+                        </nav>
+                        <div class="nav-line">
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="wrapper">
+                    <div class="us-block">
+                        <div class="us-title">Контакты</div>
+                        <div id="map-block"></div>
+                        <div class="contact-block">
+                            <div class="us-text contact-text">
+                                Для получения более подробной информации об используемых нами технологиях обращайтесь к нам по следующиму адресу:
+                            </div>
+                            <div class="contact">
+                                <h2>Адрес:</h2>
+                                <div class="us-text">
+                                    Россия, 143900,
+                                    Московская область, г. Балашиха,
+                                    Щелковское шоссе, 54-Б
+                                </div>
+                            </div>
+                            <div class="contact">
+                                <h2>Телефон:</h2>
+                                <div class="us-text">
+                                    +7 (495) 502-92-90
+                                    +7 (499) 479-69-20
+                                </div>
+                            </div>
+                            <div class="contact">
+                                <h2>Email:</h2>
+                                <div class="us-text">
+                                    info@lessad.ru
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <div class="wrapper">
+                    <div class="contact-blocks">
+                        <div class="con-block">
+                            +7 (495) 502-92-90<br>
+                            +7 (499) 479-69-20<br>
+                            info@lessad.ru
+                        </div>
+                        <div class="con-block">
+                            Россия, 143900,<br>
+                            Московская область, г. Балашиха,<br>
+                            Щелковское шоссе, 54-Б
+                        </div>
+                    </div>
+                    <div class="fl-r">
+                        <ul class="footer-nav">
+                            <li><a href="#">О компании</a>
+                            <li><a href="#">Продукция</a>
+                            <li><a href="#">Опыт</a>
+                            <li><a href="#">Контакты</a> 
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="footer-bottom">
+                        <span>Все права защищены. (с) 2014 ООО «Лессад»</span>
+                        <span class="fl-r">Сделано в <a href="http://grapheme.ru" target="_blank" class="ftr-link">ГРАФЕМА</span></span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/main.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA4Q5VgK-858jgeSbJKHbclop_XIJs3lXs&sensor=true"></script>
+        <script>
+            function initialize() {
+
+            var myLatlng = new google.maps.LatLng(47.2248231, 39.7273844);
+
+            var mapOptions = {
+              center: myLatlng,
+              zoom: 17,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+            };
+            var map = new google.maps.Map(document.getElementById("map-block"),
+                mapOptions);
+
+          }
+          var map = google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+
+    </body>
+</html>
