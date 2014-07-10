@@ -225,19 +225,46 @@ header {
 
 	.info-circle {
 		.box-sizing;
+		.transition;
 		position: absolute;
 		width: 310rem / @htmlFontSize;
 		height: 310rem / @htmlFontSize;
 		border-radius: 310rem / 2 / @htmlFontSize;
-		border: 25rem / @htmlFontSize solid #535817;
-		background: url(../img/koroed-circle.jpg) no-repeat center center e('/') auto 100%;
 		left: 670rem / @htmlFontSize;
 		top: 130rem / @htmlFontSize;
+		.transform(scale(0));
+
+		&[data-id="care"] {
+			background: url(../img/circle-care.png) no-repeat center center e('/') auto 200%;
+		}
+
+		&[data-id="young"] {
+			background: url(../img/circle-young.png) no-repeat center center e('/') auto 200%;
+		}
+
+		&[data-id="defend"] {
+			background: url(../img/circle-defend.png) no-repeat center center e('/') auto 200%;
+		}
+
+		&[data-id="rest"] {
+			background: url(../img/circle-rest.png) no-repeat center center e('/') auto 200%;
+		}
+
+		&.active {
+			.transform(scale(1));
+		}
 	}
 
 	.info-block {
+		.transition;
 		position: absolute;
 		width: 300rem / @htmlFontSize;
+		opacity: .7;
+		cursor: pointer;
+
+		&.active {
+			opacity: 1;
+		}
 
 		.title {
 			font-family: "gotha_bold";
@@ -465,6 +492,8 @@ footer {
 		width: 65rem / @htmlFontSize;
 		top: 50%;
 		margin-top: -65rem / 2 / @htmlFontSize;
+		cursor: pointer;
+		z-index: 2;
 	}
 
 	.slider-prev {

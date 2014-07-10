@@ -338,18 +338,43 @@ header .nav-line .line {
 }
 .main-info .info-circle {
   box-sizing: border-box;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   position: absolute;
   width: 19.375rem;
   height: 19.375rem;
   border-radius: 9.6875rem;
-  border: 1.5625rem solid #535817;
-  background: url(../img/koroed-circle.jpg) no-repeat center center / auto 100%;
   left: 41.875rem;
   top: 8.125rem;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+.main-info .info-circle[data-id="care"] {
+  background: url(../img/circle-care.png) no-repeat center center / auto 200%;
+}
+.main-info .info-circle[data-id="young"] {
+  background: url(../img/circle-young.png) no-repeat center center / auto 200%;
+}
+.main-info .info-circle[data-id="defend"] {
+  background: url(../img/circle-defend.png) no-repeat center center / auto 200%;
+}
+.main-info .info-circle[data-id="rest"] {
+  background: url(../img/circle-rest.png) no-repeat center center / auto 200%;
+}
+.main-info .info-circle.active {
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 .main-info .info-block {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   position: absolute;
   width: 18.75rem;
+  opacity: .7;
+  cursor: pointer;
+}
+.main-info .info-block.active {
+  opacity: 1;
 }
 .main-info .info-block .title {
   font-family: "gotha_bold";
@@ -545,6 +570,8 @@ footer .footer-bottom .ftr-link {
   width: 4.0625rem;
   top: 50%;
   margin-top: -2.03125rem;
+  cursor: pointer;
+  z-index: 2;
 }
 .info-slider .slider-prev {
   left: 0;
