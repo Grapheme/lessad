@@ -22,17 +22,20 @@
         <div class="wrapper-full">
             <header>
                 <div class="search">
-                    <a href="#" class="search-icon"></a>
+                    <form>
+                        <button href="#" class="search-icon"></button>
+                        <input type="text" class="search-input">
+                    </form>
                 </div>
                 <div class="wrapper">
                     <a href="#" class="logo"></a>
                     <div class="nav-container">
                         <nav class="nav-main">
                             <ul>
-                                <li><a href="#" class="active">О компании</a>
+                                <li><a href="#">О компании</a>
                                 <li><a href="#">Продукция</a>
                                 <li><a href="#">Опыт</a>
-                                <li><a href="#">Контакты</a>
+                                <li><a href="#" class="active">Контакты</a>
                             </ul>
                         </nav>
                         <div class="nav-line">
@@ -53,16 +56,16 @@
                             <div class="contact">
                                 <h2>Адрес:</h2>
                                 <div class="us-text">
-                                    Россия, 143900,
-                                    Московская область, г. Балашиха,
-                                    Щелковское шоссе, 54-Б
+                                    Россия, 143900,<br>
+                                    Московская область, г. Балашиха,<br>
+                                    Щелковское шоссе, 54-Б<br>
                                 </div>
                             </div>
                             <div class="contact">
                                 <h2>Телефон:</h2>
                                 <div class="us-text">
-                                    +7 (495) 502-92-90
-                                    +7 (499) 479-69-20
+                                    +7 (495) 502-92-90<br>
+                                    +7 (499) 479-69-20<br>
                                 </div>
                             </div>
                             <div class="contact">
@@ -75,56 +78,113 @@
                     </div>
                 </div>
             </main>
-            <footer>
-                <div class="wrapper">
-                    <div class="contact-blocks">
-                        <div class="con-block">
-                            +7 (495) 502-92-90<br>
-                            +7 (499) 479-69-20<br>
-                            info@lessad.ru
-                        </div>
-                        <div class="con-block">
-                            Россия, 143900,<br>
-                            Московская область, г. Балашиха,<br>
-                            Щелковское шоссе, 54-Б
-                        </div>
+        </div>
+
+        <footer>
+            <div class="wrapper">
+                <div class="contact-blocks">
+                    <div class="con-block">
+                        +7 (495) 502-92-90<br>
+                        +7 (499) 479-69-20<br>
+                        info@lessad.ru
                     </div>
-                    <div class="fl-r">
-                        <ul class="footer-nav">
-                            <li><a href="#">О компании</a>
-                            <li><a href="#">Продукция</a>
-                            <li><a href="#">Опыт</a>
-                            <li><a href="#">Контакты</a> 
-                        </ul>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="footer-bottom">
-                        <span>Все права защищены. (с) 2014 ООО «Лессад»</span>
-                        <span class="fl-r">Сделано в <a href="http://grapheme.ru" target="_blank" class="ftr-link">ГРАФЕМА</span></span>
+                    <div class="con-block">
+                        Россия, 143900,<br>
+                        Московская область, г. Балашиха,<br>
+                        Щелковское шоссе, 54-Б
                     </div>
                 </div>
-            </footer>
-        </div>
+                <div class="fl-r">
+                    <ul class="footer-nav">
+                        <li><a href="#">О компании</a>
+                        <li><a href="#">Продукция</a>
+                        <li><a href="#">Опыт</a>
+                        <li><a href="#">Контакты</a> 
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+                <div class="footer-bottom">
+                    <span>Все права защищены. (с) 2014 ООО «Лессад»</span>
+                    <span class="fl-r">Сделано в <a href="http://grapheme.ru" target="_blank" class="ftr-link">ГРАФЕМА</a></span>
+                </div>
+            </div>
+        </footer>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/main.js"></script>
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA4Q5VgK-858jgeSbJKHbclop_XIJs3lXs&sensor=true"></script>
         <script>
+
+            var directionsDisplay;
+            var directionsService = new google.maps.DirectionsService();
+            var map; 
+
             function initialize() {
-
-            var myLatlng = new google.maps.LatLng(47.2248231, 39.7273844);
-
-            var mapOptions = {
-              center: myLatlng,
-              zoom: 17,
-              mapTypeId: google.maps.MapTypeId.ROADMAP,
-            };
-            var map = new google.maps.Map(document.getElementById("map-block"),
-                mapOptions);
-
-          }
-          var map = google.maps.event.addDomListener(window, 'load', initialize);
+                var styles = [
+                    {
+                        featureType: 'water',
+                        elementType: 'all',
+                        stylers: [
+                            { hue: '#f8f8f8' },
+                            { saturation: -100 },
+                            { lightness: 89 },
+                            { visibility: 'on' }
+                    ]
+                    },{
+                        featureType: 'landscape',
+                        elementType: 'all',
+                        stylers: [
+                            { hue: '#97d7c4' },
+                            { saturation: 24 },
+                            { lightness: -19 },
+                            { visibility: 'on' }
+                        ]
+                    }
+                ];
+                            
+                var mapOptions = {
+                    zoom : 16,
+                    scrollwheel : false,
+                    center : new google.maps.LatLng(55.83096, 37.931673),
+                    mapTypeId : 'Styled',
+                    disableDefaultUI: true,
+                    zoomControl: true
+                }
+                map = new google.maps.Map(document.getElementById('map-block'), mapOptions);
+                var styledMapType = new google.maps.StyledMapType(styles, { name: 'Styled' });
+                map.mapTypes.set('Styled', styledMapType);  
+                
+                var image = 'img/marker.png';
+                var image2 = 'img/marker2.png';
+                var infoWindow = new google.maps.InfoWindow({ 
+                    content: 'Московская область, г. Балашиха, Щелковское шоссе, 54-Б',
+                    maxWidth: 300 
+                }); 
+                var myLatLng = new google.maps.LatLng(55.83096, 37.931673);
+                var beachMarker = new google.maps.Marker({
+                    position : myLatLng,
+                    map : map,
+                    icon : image,
+                    title: 'Конферум'
+                });
+                google.maps.event.addListener(beachMarker, 'click', function() { 
+                    if ( $(window).width() >= 768 ) {
+                        showAnimation();
+                    }
+                    else {
+                        infoWindow.open(map, beachMarker);
+                    }           
+                });
+                google.maps.event.addListener(beachMarker, 'mouseover', function() {
+                    beachMarker.setIcon(image2);
+                });
+                google.maps.event.addListener(beachMarker, 'mouseout', function() {
+                    beachMarker.setIcon(image);
+                });
+                
+            }
+            initialize();
         </script>
 
     </body>
