@@ -26,17 +26,17 @@ class GithubController extends \BaseController {
 
     public static function returnExtFormElements() {
 
-        return TRUE;
+        return null;
     }
 
     public static function returnActions() {
 
-        return TRUE;
+        return null;
     }
 
     public static function returnInfo() {
 
-        return TRUE;
+        return null;
     }
 
     public function gitDeployProject($git_branch,$extends = null){
