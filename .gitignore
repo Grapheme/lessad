@@ -1,6 +1,6 @@
 .idea
 public/uploads
-vendor
+/vendor
 composer.phar
 composer.lock
 .htaccess
