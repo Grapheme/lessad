@@ -15,9 +15,9 @@ if (
     || $module['link'] == (string)Request::segment(2)."/".(string)Request::segment(3) ## 48hours/places
     #|| @$_SERVER['REQUEST_URI'] == "/" . AuthAccount::getStartPage($module['link']) ## admin/48hours/places
 )
-    $class = "active open"; 
+    $class = "active open";
 ?>
-			<li class='{{ $class }}'>
+			<li class="{{ $class }}">
 				<a href="{{ link::auth($module['link']) }}" title="{{{ $module['title'] }}}"{{ (isset($module['menu_child']) && !empty($module['menu_child']) && $module['link'] == '#') ? ' onclick="return false;"' : '' }}>
 					<i class="fa fa-lg fa-fw {{ $module['class'] }}"></i> <span class="menu-item-parent">{{{ $module['title'] }}}</span>
 				</a>

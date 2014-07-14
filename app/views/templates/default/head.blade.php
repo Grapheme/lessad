@@ -4,7 +4,4 @@
 <meta name="description" content="{{{(isset($page_description))?$page_description:''}}}">
 {{ HTML::style('theme/css/normalize.css') }}
 {{ HTML::style('theme/css/main.css') }}
-@if(Config::get('app.use_googlefonts'))
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-@endif
 {{ HTML::script('js/vendor/modernizr-2.6.2.min.js') }}

@@ -212,6 +212,7 @@ foreach ($files as $file) {
         echo $file_name . ": " . $module_prefix . " | " . $module_name . " | " . $module_fullname . " > "; #die;
 
     ## If class have right name...
+
     if (class_exists($module_fullname)) {
 
         ## Load routes...
