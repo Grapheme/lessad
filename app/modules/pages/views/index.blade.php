@@ -1,6 +1,7 @@
 @extends(Helper::layout())
 
 @section('style')
+{{ HTML::style('theme/css/fotorama.css') }}
 @stop
 
 @section('content')
