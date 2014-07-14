@@ -16,7 +16,9 @@ class Channel extends BaseModel {
 
         return Photo::where('id', $this->image_id)->first();
 	}
-
+    public  function images(){
+        return $this->belongsTo('Photo','image_id');
+    }
     /*
 	public function group(){
 		return $this->hasOne('Group', 'group_id', 'id');

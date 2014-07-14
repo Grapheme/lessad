@@ -2,7 +2,7 @@
 
 class AdminChannelController extends BaseController {
 
-    public static $name = 'channel';
+    public static $name = 'channels';
     public static $group = 'channels';
 
     /****************************************************************************/
@@ -166,8 +166,8 @@ class AdminChannelController extends BaseController {
         foreach ($temp as $tmp) {
             $categories[$tmp->id] = $tmp->title;
         }
-
-		return View::make($this->module['tpl'].'create', compact('categories', 'cat'));
+        $templates = $this->templates();
+		return View::make($this->module['tpl'].'create', compact('categories', 'templates', 'cat'));
 	}
 
 	public function postStore(){
@@ -181,6 +181,8 @@ class AdminChannelController extends BaseController {
             'category_id' => Input::get('category_id'),
             'short' => Input::get('short'),
             'desc' => Input::get('desc'),
+            'template' => Input::get('template'),
+            'file' => $this->getUploadedFile(Input::get('file'))
         );
         ################################################
         ## Process image
@@ -197,10 +199,10 @@ class AdminChannelController extends BaseController {
 		$validation = Validator::make($input, Channel::$rules);
 		if($validation->passes()) {
 
-			Product::create($input);
+            Channel::create($input);
 			#return link::auth('groups');
 
-			$json_request['responseText'] = "Канала создан";
+			$json_request['responseText'] = "Элемент канала создан";
 			$json_request['redirect'] = link::auth($this->module['rest']);
 			$json_request['status'] = TRUE;
 
@@ -225,8 +227,8 @@ class AdminChannelController extends BaseController {
         foreach ($temp as $tmp) {
             $categories[$tmp->id] = $tmp->title;
         }
-
-		return View::make($this->module['tpl'].'edit', compact('channel', 'categories'));
+        $templates = $this->templates();
+		return View::make($this->module['tpl'].'edit', compact('channel', 'templates', 'categories'));
 	}
 
 	public function postUpdate($id){
@@ -238,7 +240,7 @@ class AdminChannelController extends BaseController {
             return App::abort(404);
 
 		if(!$channel = Channel::find($id)) {
-			$json_request['responseText'] = 'Запрашиваемый канал не найден!';
+			$json_request['responseText'] = 'Запрашиваемый элемент не найден!';
 			return Response::json($json_request, 400);
 		}
 
@@ -247,7 +249,14 @@ class AdminChannelController extends BaseController {
             'category_id' => Input::get('category_id'),
             'short' => Input::get('short'),
             'desc' => Input::get('desc'),
+            'template' => Input::get('template'),
+            'file' => $channel->file
         );
+
+        if ($newFileName = $this->getUploadedFile(Input::get('file'))):
+            File::delete(public_path($channel->file));
+            $input['file'] = $newFileName;
+        endif;
         ################################################
         ## Process image
         ################################################
@@ -265,7 +274,7 @@ class AdminChannelController extends BaseController {
 
 			$channel->update($input);
 
-			$json_request['responseText'] = 'Канал обновлен';
+			$json_request['responseText'] = 'Элемент канала обновлен';
 			#$json_request['responseText'] = print_r($group_id, 1);
 			#$json_request['responseText'] = print_r($group, 1);
 			#$json_request['responseText'] = print_r(Input::get('actions'), 1);
@@ -290,11 +299,31 @@ class AdminChannelController extends BaseController {
             return App::abort(404);
 
 		$json_request = array('status'=>FALSE, 'responseText'=>'');
+        $channel = Channel::find($id)->first();
+        if (File::exists(public_path($channel->file))):
+            File::delete(public_path($channel->file));
+        endif;
 
-	    $deleted = Channel::find($id)->delete();
-		$json_request['responseText'] = 'Канал удален';
+        $channel->delete();
+		$json_request['responseText'] = 'Элемент канала удален';
 		$json_request['status'] = TRUE;
 		return Response::json($json_request, 200);
 	}
 
+
+    public function templates() {
+        #Helper::dd(__DIR__."/views");
+        $templates = array();
+        $temp = glob(__DIR__."/views/*");
+        #Helper::dd($temp);
+        foreach ($temp as $t => $tmp) {
+            if (is_dir($tmp))
+                continue;
+            $name = basename($tmp);
+            $name = str_replace(".blade.php", "", $name);
+            $templates[$name] = $name;
+        }
+        #Helper::dd($templates);
+        return $templates;
+    }
 }

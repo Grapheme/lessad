@@ -7,7 +7,7 @@
 
 
 @section('content')
-    <h1>Продукция: Изменить категорию &laquo;{{ $category->title }}&raquo;</h1>
+    <h1>Информационные блоки: Изменить категорию &laquo;{{ $category->title }}&raquo;</h1>
 
 {{ Form::model($category, array('url'=>link::auth($module['rest'].'/update/'.$category->id), 'class'=>'smart-form', 'id'=>'category-form', 'role'=>'form', 'method'=>'post')) }}
 	<div class="row margin-top-10">

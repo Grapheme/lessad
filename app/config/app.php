@@ -49,7 +49,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider'
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider'
 	),
 	'aliases' => array(
 		'App'             => 'Illuminate\Support\Facades\App',

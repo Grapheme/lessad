@@ -2,14 +2,14 @@
 
 
 @section('content')
-    <h1>Продукция: Продукты</h1>
+    <h1>Информационные блоки: Элементы</h1>
 
     <div class="row">
     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-bottom-25 margin-top-10">
 
     		<div class="pull-left margin-right-10">
-    		@if(Allow::action('production', 'product_create'))
-    			<a class="btn btn-primary" href="{{ link::auth($module['rest'].'/create' . ($cat > 0 ? '?cat='.$cat : '') )}}">Новый продукт</a>
+    		@if(Allow::action('channels', 'channel_create'))
+    			<a class="btn btn-primary" href="{{ link::auth($module['rest'].'/create' . ($cat > 0 ? '?cat='.$cat : '') )}}">Новый элемент</a>
     		@endif
     		</div>
 
@@ -17,11 +17,11 @@
             <div class="btn-group pull-left margin-right-10">
                 @if (isset($category) && is_object($category) && $category->id)
                 <a class="btn btn-default" href="?cat={{ $category->id }}">
-                    {{ $category->title }} ({{ $category->count_products() }})
+                    {{ $category->title }} ({{ $category->count_channels() }})
                 </a>
                 @else
                 <a class="btn btn-default" href="?">
-                    Из всех категорий ({{ Product::count() }})
+                    Из всех категорий ({{ Channel::count() }})
                 </a>
                 @endif
                 <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
@@ -30,13 +30,13 @@
                 <ul class="dropdown-menu">
                     <li>
                         <a href="?">
-                            Из всех категорий ({{ Product::count() }})
+                            Из всех категорий ({{ Channel::count() }})
                         </a>
                     </li>
                     <li class="divider"></li>
                     @foreach($categories as $categ)
                     <li>
-                        <a href="?cat={{ $categ->id }}">{{ $categ->title }} ({{ $categ->count_products() }})</a>
+                        <a href="?cat={{ $categ->id }}">{{ $categ->title }} ({{ $categ->count_channels() }})</a>
                     </li>
                     @endforeach
                 </ul>
@@ -46,7 +46,7 @@
     	</div>
     </div>
 
-    @if($products->count())
+    @if($channels->count())
     <div class="row">
     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
     		<table class="table table-striped table-bordered">
@@ -55,32 +55,32 @@
                         {{--
     					<th class="col-lg-1 text-center">ID</th>
                         --}}
-    					<th class="col-lg-10 text-center" style="white-space:nowrap;">Продукт</th>
+    					<th class="col-lg-10 text-center" style="white-space:nowrap;">Элемент</th>
     					<th class="col-lg-1 text-center">Действия</th>
     				</tr>
     			</thead>
     			<tbody>
-    			@foreach($products as $product)
+    			@foreach($channels as $channel)
     				<tr class="vertical-middle">
                         {{--
-    					<td class="text-center">{{ $product->id }}</td>
+    					<td class="text-center">{{ $channel->id }}</td>
                         --}}
     					<td>
-                            {{ $product->title }}
+                            {{ $channel->title }}
                         </td>
     					<td class="text-center" style="white-space:nowrap;">
 
-        					@if(Allow::action($module['group'], 'product_edit'))
-							<form method="GET" action="{{ link::auth($module['rest'].'/edit/'.$product->id) }}" style="display:inline-block">
+        					@if(Allow::action($module['group'], 'channel_edit'))
+							<form method="GET" action="{{ link::auth($module['rest'].'/edit/'.$channel->id) }}" style="display:inline-block">
 								<button type="submit" class="btn btn-success margin-right-10">
 									Изменить
 								</button>
 							</form>
                     		@endif
 
-        					@if(Allow::action($module['group'], 'product_delete'))
-							<form method="POST" action="{{ link::auth($module['rest'].'/destroy/'.$product->id) }}" style="display:inline-block">
-								<button type="submit" class="btn btn-danger remove-product">
+        					@if(Allow::action($module['group'], 'channel_delete'))
+							<form method="POST" action="{{ link::auth($module['rest'].'/destroy/'.$channel->id) }}" style="display:inline-block">
+								<button type="submit" class="btn btn-danger remove-channel">
 									Удалить
 								</button>
 							</form>
@@ -94,7 +94,7 @@
     	</div>
     </div>
 
-    {{ $products->appends(array('cat' => $cat))->links() }}
+    {{ $channels->appends(array('cat' => $cat))->links() }}
 
     @else
     <div class="row">
@@ -102,7 +102,7 @@
     		<div class="ajax-notifications custom">
     			<div class="alert alert-transparent">
     				<h4>Список пуст</h4>
-    				В данном разделе находятся продукты
+    				В данном разделе находятся элементы информационных каналов
     				<p><br><i class="regular-color-light fa fa-th-list fa-3x"></i></p>
     			</div>
     		</div>
@@ -115,8 +115,8 @@
 
 @section('scripts')
     <script>
-    var essence = 'product';
-    var essence_name = 'продукт';
+    var essence = 'channel';
+    var essence_name = 'элемент';
 	var validation_rules = {
 		title: { required: true },
 		category_id: { required: true },

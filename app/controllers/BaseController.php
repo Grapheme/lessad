@@ -60,4 +60,14 @@ class BaseController extends Controller {
         return View::make(implode('.', $parts));
     }
 
+    public function getUploadedFile($tmp_file = null){
+
+        if (Input::hasFile('file')):
+            $fileName = time()."_".rand(1000, 1999).'.'.Input::file('file')->getClientOriginalExtension();
+            Input::file('file')->move(public_path(Config::get('app-default.upload_dir').'/'), $fileName);
+            return Config::get('app-default.upload_dir').'/'.$fileName;
+        endif;
+        return null;
+    }
+
 }

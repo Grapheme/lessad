@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <h1>Продукция: Новая категория</h1>
+    <h1>Информационные блоки: Новая категория</h1>
 
 {{ Form::open(array('url'=>link::auth($module['rest'].'/store'), 'role'=>'form', 'class'=>'smart-form', 'id'=>'category-form', 'method'=>'post')) }}
 	<div class="row margin-top-10">

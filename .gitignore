@@ -4,3 +4,5 @@ public/uploads
 composer.phar
 composer.lock
 .htaccess
+public/packages
+app/config/packages

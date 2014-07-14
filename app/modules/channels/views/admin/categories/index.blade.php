@@ -2,12 +2,12 @@
 
 
 @section('content')
-    <h1>Продукция: Категории продуктов</h1>
+    <h1>Информационные блоки: Категории каналов</h1>
 
     <div class="row">
     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-bottom-25 margin-top-10">
     		<div class="">
-    		@if(Allow::action('production', 'category_create'))
+    		@if(Allow::action('channels', 'category_create'))
     			<a class="btn btn-primary" href="{{ link::auth($module['rest'].'/create')}}">Новая категория</a>
     		@endif
     		</div>
@@ -40,7 +40,7 @@
 
     						@if(Allow::action($module['group'], 'product_view'))
     							<a class="btn btn-info margin-right-10" style="display:inline-block" href="{{ link::auth('production/products?cat='.$category->id) }}">
-    								Продукты ({{ $category->count_products() }})
+    								Каналы ({{ $category->count_channels() }})
     							</a>
     						@endif
 
@@ -73,7 +73,7 @@
     		<div class="ajax-notifications custom">
     			<div class="alert alert-transparent">
     				<h4>Список пуст</h4>
-    				В данном разделе находятся категории продукции
+    				В данном разделе находятся категории информационных каналов
     				<p><br><i class="regular-color-light fa fa-th-list fa-3x"></i></p>
     			</div>
     		</div>

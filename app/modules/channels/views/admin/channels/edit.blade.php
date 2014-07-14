@@ -7,13 +7,13 @@
 
 
 @section('content')
-    <h1>Продукция: &laquo;{{ $product->title }}&raquo;</h1>
+    <h1>Продукция: &laquo;{{ $channel->title }}&raquo;</h1>
 
-{{ Form::model($product, array('url'=>link::auth($module['rest'].'/update/'.$product->id), 'class'=>'smart-form', 'id'=>'product-form', 'role'=>'form', 'method'=>'post')) }}
+{{ Form::model($channel, array('url'=>link::auth($module['rest'].'/update/'.$channel->id), 'class'=>'smart-form', 'id'=>'channel-form', 'role'=>'form', 'method'=>'post','files'=>true)) }}
 	<div class="row margin-top-10">
 		<section class="col col-6">
 			<div class="well">
-				<header>Для изменения продукта отредактируйте форму:</header>
+				<header>Для изменения элемента отредактируйте форму:</header>
 				<fieldset>
 
 					<section>
@@ -29,12 +29,19 @@
 							{{ Form::select('category_id', $categories) }}
 						</label>
 					</section>
-
+                    @if(Allow::module('templates') || 1)
+                    <section>
+                        <label class="label">Шаблон:</label>
+                        <label class="select col-5">
+                            {{ Form::select('template', $templates,NULL, array('class'=>'template-change','autocomplete'=>'off')) }} <i></i>
+                        </label>
+                    </section>
+                    @endif
                     @if (Allow::module('galleries'))
                     <section>
                         <label class="label">Изображение</label>
                         <label class="input">
-                            {{ ExtForm::image('image', @$product->photo()) }}
+                            {{ ExtForm::image('image', @$channel->photo()) }}
                         </label>
                     </section>
                     @endif
@@ -45,7 +52,23 @@
 							{{ Form::textarea('short') }}
 						</label>
 					</section>
-
+                    <section>
+                        <label class="label">Описание</label>
+                        <label class="textarea">
+                            {{ Form::textarea('desc',NULL,array('class'=>'redactor')) }}
+                        </label>
+                    </section>
+                    <section>
+                        <label class="label">Файл</label>
+                        <label class="input input-file" for="file">
+                            <div class="button"><input type="file" onchange="this.parentNode.nextSibling.value = this.value" name="file">Выбрать</div><input type="text" readonly=""">
+                        </label>
+                        @if(!empty($channel->file))
+                        <div class="note">
+                            <strong>Внимание!</strong> Документ загружен ранее
+                        </div>
+                        @endif
+                    </section>
 				</fieldset>
 				<footer>
 					<a class="btn btn-default no-margin regular-10 uppercase pull-left btn-spinner" href="{{ URL::previous() }}">
@@ -64,8 +87,8 @@
 
 @section('scripts')
     <script>
-    var essence = 'product';
-    var essence_name = 'продукт';
+    var essence = 'channel';
+    var essence_name = 'элемент';
 	var validation_rules = {
 		title: { required: true },
 		category_id: { required: true, min: 1 },

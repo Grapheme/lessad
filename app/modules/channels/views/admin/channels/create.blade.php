@@ -8,13 +8,13 @@
 
 @section('content')
 
-    <h1>Продукция: Новый продукт</h1>
+    <h1>Информационные блоки: Новый элемент</h1>
 
-{{ Form::open(array('url'=>link::auth($module['rest'].'/store'), 'role'=>'form', 'class'=>'smart-form', 'id'=>'product-form', 'method'=>'post')) }}
+{{ Form::open(array('url'=>link::auth($module['rest'].'/store'), 'role'=>'form', 'class'=>'smart-form', 'id'=>'channel-form', 'method'=>'post', 'files'=>true)) }}
 	<div class="row margin-top-10">
 		<section class="col col-6">
 			<div class="well">
-				<header>Для создания нового продукта заполните форму:</header>
+				<header>Для создания нового элемента заполните форму:</header>
 				<fieldset>
 
 					<section>
@@ -31,6 +31,15 @@
 						</label>
 					</section>
 
+                    @if(Allow::module('templates') || 1)
+                    <section>
+                        <label class="label">Шаблон:</label>
+                        <label class="select col-5">
+                            {{ Form::select('template', $templates,'default', array('class'=>'template-change','autocomplete'=>'off')) }} <i></i>
+                        </label>
+                    </section>
+                    @endif
+
                     @if (Allow::module('galleries'))
                     <section>
                         <label class="label">Изображение</label>
@@ -46,8 +55,20 @@
 							{{ Form::textarea('short', '') }}
 						</label>
 					</section>
+                    <section>
+						<label class="label">Описание</label>
+						<label class="textarea">
+							{{ Form::textarea('desc', '',array('class'=>'redactor')) }}
+						</label>
+					</section>
 
-				</fieldset>
+                    <section>
+                        <label class="label">Файл</label>
+                        <label class="input input-file" for="file">
+                            <div class="button"><input type="file" onchange="this.parentNode.nextSibling.value = this.value" name="file">Выбрать</div><input type="text" readonly=""">
+                        </label>
+                    </section>
+                </fieldset>
 				<footer>
 					<a class="btn btn-default no-margin regular-10 uppercase pull-left btn-spinner" href="{{URL::previous()}}">
 						<i class="fa fa-arrow-left hidden"></i> <span class="btn-response-text">Назад</span>
@@ -65,8 +86,8 @@
 
 @section('scripts')
     <script>
-    var essence = 'product';
-    var essence_name = 'продукт';
+    var essence = 'channel';
+    var essence_name = 'элемент';
 	var validation_rules = {
 		title: { required: true },
 		category_id: { required: true, min: 1 },
