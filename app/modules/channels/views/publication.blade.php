@@ -1,3 +1,7 @@
+<?php
+$channel = Channel::where('category_id',2)->take(3)->get();
+?>
+@if($channel->count())
 <div class="about-posts">
     <div class="wrapper">
         <div class="about-img-stick"></div>
@@ -8,7 +12,7 @@
         <div class="us-title mar-title">Публикации</div>
         <div class="posts-window">
             <ul class="post-ul">
-                @foreach(Channel::where('category_id',2)->take(3)->get() as $pub)
+                @foreach($channel as $pub)
                 <li>
                     <a href="{{ !empty($pub->link) ? link::to($pub->link) :'javascript::void(0);'}}" class="title">{{ $pub->title }}</a>
                     <div class="desc">{{ $pub->short }}</div>
@@ -20,3 +24,4 @@
         @endif
     </div>
 </div>
+@endif

@@ -3,7 +3,7 @@ if($channel = Channel::where('category_id',1)->with('images')->get()):
     $channel = $channel->toArray();
 endif;
 ?>
-
+@if(count($channel))
 <div class="about-docs">
     <div class="wrapper">
         <div class="us-title mar-title">Документы</div>
@@ -20,3 +20,4 @@ endif;
         </ul>
     </div>
 </div>
+@endif
