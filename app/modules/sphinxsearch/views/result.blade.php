@@ -1,8 +1,8 @@
 <?php
-if (Session::has('search_request')):
-   $results = SphinxSearch::search(Session::get('search_request'))->query();
+if (Input::has('query')):
+   $results = SphinxSearch::search(Input::has('query'))->query();
 
-    Helper::dd($results);
+   var_dump($results);exit;
 
 endif;
 

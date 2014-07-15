@@ -46,7 +46,7 @@ class SphinxsearchController extends \BaseController {
         endif;
 
         if(!empty($text)):
-            return Redirect::to('/search')->with('search_request',$text);
+            return Redirect::to('/search?query='.$text);
         else:
             return Redirect::back();
         endif;
