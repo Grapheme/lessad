@@ -70,4 +70,14 @@ class BaseController extends Controller {
         return null;
     }
 
+    public function getValueInObject($array,$key = 'id'){
+
+        $result = array();
+        if(!empty($array)):
+            foreach ($array as $index => $values):
+                $result[] = $values[$key];
+            endforeach;
+        endif;
+        return $result;
+    }
 }
