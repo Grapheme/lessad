@@ -23,6 +23,14 @@
 						</label>
 					</section>
 
+                    <section>
+                        <label class="label">Ссылка</label>
+                        <label class="input">
+                            {{ Form::text('link') }}
+                        </label>
+                        <div class="note">Относительная ссылка если в предалах сайта или полная если это другой сайт</div>
+                    </section>
+
 					<section>
 						<label class="label">Категория</label>
 						<label class="select">

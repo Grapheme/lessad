@@ -22,6 +22,7 @@ class CreateChannelsTables extends Migration {
                 $table->integer('category_id')->default(0)->unsigned()->nullable();
                 $table->string('template',100)->nullable();
                 $table->string('title', 128)->nullable();
+                $table->string('link', 256)->nullable();
                 $table->text('short')->nullable();
                 $table->text('desc')->nullable();
                 $table->string('file', 128)->nullable();

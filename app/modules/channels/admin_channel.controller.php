@@ -178,6 +178,7 @@ class AdminChannelController extends BaseController {
 
 		$input = array(
             'title' => Input::get('title'),
+            'link' => Input::get('link'),
             'category_id' => Input::get('category_id'),
             'short' => Input::get('short'),
             'desc' => Input::get('desc'),
@@ -246,6 +247,7 @@ class AdminChannelController extends BaseController {
 
         $input = array(
             'title' => Input::get('title'),
+            'link' => Input::get('link'),
             'category_id' => Input::get('category_id'),
             'short' => Input::get('short'),
             'desc' => Input::get('desc'),

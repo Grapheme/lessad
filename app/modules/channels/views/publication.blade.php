@@ -10,7 +10,7 @@
             <ul class="post-ul">
                 @foreach(Channel::where('category_id',2)->take(3)->get() as $pub)
                 <li>
-                    <a href="javascript::void(0);" class="title">{{ $pub->title }}</a>
+                    <a href="{{ !empty($pub->link) ? link::to($pub->link) :'javascript::void(0);'}}" class="title">{{ $pub->title }}</a>
                     <div class="desc">{{ $pub->short }}</div>
                 @endforeach
             </ul>

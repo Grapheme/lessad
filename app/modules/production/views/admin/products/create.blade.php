@@ -46,7 +46,12 @@
 							{{ Form::textarea('short', '') }}
 						</label>
 					</section>
-
+                    <section>
+                        <label class="label">Краткое описание</label>
+                        <label class="textarea">
+                            {{ Form::textarea('desc','',array('class'=>'redactor')) }}
+                        </label>
+                    </section>
 				</fieldset>
 				<footer>
 					<a class="btn btn-default no-margin regular-10 uppercase pull-left btn-spinner" href="{{URL::previous()}}">

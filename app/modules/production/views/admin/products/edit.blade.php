@@ -45,6 +45,12 @@
 							{{ Form::textarea('short') }}
 						</label>
 					</section>
+                    <section>
+						<label class="label">Краткое описание</label>
+						<label class="textarea">
+							{{ Form::textarea('desc',NULL,array('class'=>'redactor')) }}
+						</label>
+					</section>
 
 				</fieldset>
 				<footer>
