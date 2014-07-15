@@ -59,7 +59,7 @@ class SphinxsearchController extends \BaseController {
         $result['products'] = self::getProductsModels($indexes['products']);
         $result['reviews'] = self::getReviewsModels($indexes['reviews']);
         $result['pages'] = self::getPagesModels($indexes['pages']);
-        return $indexes;
+        return $result;
     }
 
     private static function readIndexes(){
@@ -92,7 +92,7 @@ class SphinxsearchController extends \BaseController {
         if($recordIDs = self::getValueInObject($foundRecords)):
             return Channel::whereIn('id',$recordIDs)->get();
         endif;
-        return array();
+        return null;
     }
 
     private static function getProductsModels($foundRecords){
@@ -102,7 +102,7 @@ class SphinxsearchController extends \BaseController {
                 return $products->toArray();
             endif;
         endif;
-        return array();
+        return null;
     }
 
     private static function getReviewsModels($foundRecords){
@@ -110,7 +110,7 @@ class SphinxsearchController extends \BaseController {
         if($recordIDs = self::getValueInObject($foundRecords)):
             return Reviews::whereIn('id',$recordIDs)->with('photo')->get();
         endif;
-        return array();
+        return null;
     }
 
     private static function getPagesModels($foundRecords){
@@ -118,7 +118,7 @@ class SphinxsearchController extends \BaseController {
         if($recordIDs = self::getValueInObject($foundRecords)):
             return I18nPage::whereIn('id',$recordIDs)->with('metas')->get();
         endif;
-        return array();
+        return null;
 
     }
 }
