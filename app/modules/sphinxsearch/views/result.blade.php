@@ -1,7 +1,7 @@
 <?php
 if (Input::has('query')):
 
-    $result = SphinxsearchController::readIndexes();
+    $result = SphinxsearchController::search();
 
     print_r($result);
     exit;

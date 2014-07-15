@@ -55,11 +55,14 @@ class SphinxsearchController extends \BaseController {
     public static function search(){
 
         $indexes = self::readIndexes();
-
+        $result['channels'] = self::getChannelsModels($indexes['channels']);
+        $result['products'] = self::getProductsModels($indexes['products']);
+        $result['reviews'] = self::getReviewsModels($indexes['reviews']);
+        $result['pages'] = self::getPagesModels($indexes['pages']);
         return $indexes;
     }
 
-    public static function readIndexes(){
+    private static function readIndexes(){
 
         $channels = SphinxSearch::search(Input::get('query'), 'channelsIndex')->setFieldWeights(array('title' => 10, 'short' => 8, 'desc' => 6, 'category_title' => 1))
             ->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_EXTENDED)
@@ -82,5 +85,40 @@ class SphinxsearchController extends \BaseController {
             ->limit(6)->get();
 
         return compact('channels','products','reviews','pages');
+    }
+
+    private static function getChannelsModels($foundRecords){
+
+        if($recordIDs = self::getValueInObject($foundRecords)):
+            return Channel::whereIn('id',$recordIDs)->get();
+        endif;
+        return array();
+    }
+
+    private static function getProductsModels($foundRecords){
+
+        if($recordIDs = self::getValueInObject($foundRecords)):
+            if($products = Product::whereIn('id',$recordIDs)->with('images')->get()):
+                return $products->toArray();
+            endif;
+        endif;
+        return array();
+    }
+
+    private static function getReviewsModels($foundRecords){
+
+        if($recordIDs = self::getValueInObject($foundRecords)):
+            return Reviews::whereIn('id',$recordIDs)->with('photo')->get();
+        endif;
+        return array();
+    }
+
+    private static function getPagesModels($foundRecords){
+
+        if($recordIDs = self::getValueInObject($foundRecords)):
+            return I18nPage::whereIn('id',$recordIDs)->with('metas')->get();
+        endif;
+        return array();
+
     }
 }
