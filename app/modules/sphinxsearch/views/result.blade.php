@@ -22,7 +22,7 @@ if (Input::has('query')):
     $pages = SphinxSearch::search(Input::get('query'), 'pagesIndex')->setFieldWeights(array('seo_title'=>10,'seo_description'=>10,'seo_h1'=>10,'content'=>8))
         ->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_EXTENDED)
         ->SetSortMode(\Sphinx\SphinxClient::SPH_SORT_RELEVANCE, "@weight DESC")
-        ->limit(6)->metas()->get();
+        ->limit(6)->get();
     var_dump($pages);
 
 endif;
