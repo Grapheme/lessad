@@ -9,7 +9,8 @@
 		"intervention/image": "dev-master",
         "barryvdh/laravel-ide-helper": "1.*",
 		"doctrine/dbal": "2.5.x-dev",
-		"barryvdh/laravel-debugbar": "1.x-dev"
+		"barryvdh/laravel-debugbar": "1.x-dev",
+		"scalia/sphinxsearch": "0.1.1"
 	},
 	"autoload": {
 		"classmap": [

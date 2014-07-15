@@ -21,5 +21,6 @@
     </div>
 	@include('templates.default.scripts')
 	@yield('scripts')
+    {{ HTML::script('theme/js/main.js') }}
 </body>
 </html>

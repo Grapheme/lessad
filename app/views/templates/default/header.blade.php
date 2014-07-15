@@ -1,6 +1,9 @@
 <header>
     <div class="search">
-        <a href="#" class="search-icon"></a>
+        {{ Form::open(array('url'=>link::to('search/request'),'method'=>'post')) }}
+            <input type="text" placeholder="Поиск" name="search_request" class="search-input" value="{{ Session::get('search_request') }}">
+            <button type="submit" class="search-icon"></button>
+        {{ Form::close() }}
     </div>
     <div class="wrapper">
        @if(!Request::is('/'))
