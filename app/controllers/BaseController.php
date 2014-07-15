@@ -75,7 +75,7 @@ class BaseController extends Controller {
         $result = array();
         if(!empty($array)):
             foreach ($array as $index => $values):
-                $result[] = $values[$key];
+                $result[] = $values->$key;
             endforeach;
         endif;
         return $result;
