@@ -73,7 +73,9 @@ class SphinxsearchController extends \BaseController {
             ->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_EXTENDED)
             ->SetSortMode(\Sphinx\SphinxClient::SPH_SORT_RELEVANCE, "@weight DESC")
             ->limit(6)->get();
-
+        if (!empty($result['pages'])):
+            $result['pages'] = $result['pages']->with('metas')->get();
+        endif;
         return $result;
     }
 }
