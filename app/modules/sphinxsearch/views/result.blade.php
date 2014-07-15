@@ -1,29 +1,10 @@
 <?php
 if (Input::has('query')):
 
-    $channels = SphinxSearch::search(Input::get('query'), 'channelsIndex')->setFieldWeights(array('title'=>10,'short'=>8,'desc'=>6,'category_title'=>1))
-        ->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_EXTENDED)
-        ->SetSortMode(\Sphinx\SphinxClient::SPH_SORT_RELEVANCE, "@weight DESC")
-        ->limit(6)->get();
-    var_dump($channels);
+    $result = SphinxsearchController::readIndexes();
 
-    $products = SphinxSearch::search(Input::get('query'), 'productsIndex')->setFieldWeights(array('title'=>10,'short'=>8,'desc'=>6,'category_title'=>1))
-        ->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_EXTENDED)
-        ->SetSortMode(\Sphinx\SphinxClient::SPH_SORT_RELEVANCE, "@weight DESC")
-        ->limit(6)->get();
-    var_dump($products);
-
-    $reviews = SphinxSearch::search(Input::get('query'), 'reviewsIndex')->setFieldWeights(array('name'=>10,'name'=>8,'details'=>1))
-        ->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_EXTENDED)
-        ->SetSortMode(\Sphinx\SphinxClient::SPH_SORT_RELEVANCE, "@weight DESC")
-        ->limit(6)->get();
-    var_dump($reviews);
-
-    $pages = SphinxSearch::search(Input::get('query'), 'pagesIndex')->setFieldWeights(array('seo_title'=>10,'seo_description'=>10,'seo_h1'=>10,'content'=>8))
-        ->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_EXTENDED)
-        ->SetSortMode(\Sphinx\SphinxClient::SPH_SORT_RELEVANCE, "@weight DESC")
-        ->limit(6)->get();
-    var_dump($pages);
+    print_r($result);
+    exit;
 
 endif;
 ?>
