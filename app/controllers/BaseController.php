@@ -70,7 +70,7 @@ class BaseController extends Controller {
         return null;
     }
 
-    public function getValueInObject($array,$key = 'id'){
+    public static function getValueInObject($array,$key = 'id'){
 
         $result = array();
         if(!empty($array)):
