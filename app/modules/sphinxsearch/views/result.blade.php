@@ -16,40 +16,45 @@ endif;
                 @foreach($result['channels'] as $channel)
             <li>
                 <div class="search-text">
-                    После зачистки полости дупла от трухи и мусора она опрыскивается аэрозольным антисептиком. Если дупло имеет большой размер в поперечнике или длиной около полуметра, то необходимо  провести  фумигацию или  обработку  савой также
-                    в аэрозольном варианте для предотвращения развития  в древесине муравьев, точильщиков и образования гнезд ос и шершней....
+                    <strong>{{ $channel->title }}</strong>
+                    {{ $channel->short }}
                 </div>
-                <a href="#" class="post-link">Подробнее</a>
+                @if(!empty($channel->link))
+                <a href="{{ $channel->link }}" class="post-link">Подробнее</a>
+                @endif
                 @endforeach
             @endif
-            @if(!is_null($result['products']) && $result['products']->count())
+            @if(!is_null($result['products']) && count($result['products']))
                 @foreach($result['products'] as $product)
             <li>
                 <div class="search-text">
-                    После зачистки полости дупла от трухи и мусора она опрыскивается аэрозольным антисептиком. Если дупло имеет большой размер в поперечнике или длиной около полуметра, то необходимо  провести  фумигацию или  обработку  савой также
-                    в аэрозольном варианте для предотвращения развития  в древесине муравьев, точильщиков и образования гнезд ос и шершней....
+                    <div class="product-info">
+                        <div class="block-title">{{ $product['title'] }}</div>
+                        <div class="us-text">
+                            {{ $product['short'] }}
+                        </div>
+                        {{ $product['desc'] }}
+                    </div>
                 </div>
-                <a href="#" class="post-link">Подробнее</a>
                 @endforeach
             @endif
             @if(!is_null($result['reviews']) && $result['reviews']->count())
                 @foreach($result['reviews'] as $review)
             <li>
                 <div class="search-text">
-                    После зачистки полости дупла от трухи и мусора она опрыскивается аэрозольным антисептиком. Если дупло имеет большой размер в поперечнике или длиной около полуметра, то необходимо  провести  фумигацию или  обработку  савой также
-                    в аэрозольном варианте для предотвращения развития  в древесине муравьев, точильщиков и образования гнезд ос и шершней....
+                    <div class="name">{{ $review->name }}</div>
+                    <div class="post">{{ $review->position }}</div>
+                    <div class="message">{{ $review->content }}</div>
                 </div>
-                <a href="#" class="post-link">Подробнее</a>
                 @endforeach
             @endif
             @if(!is_null($result['pages']) && $result['pages']->count())
                 @foreach($result['pages'] as $page)
             <li>
                 <div class="search-text">
-                    После зачистки полости дупла от трухи и мусора она опрыскивается аэрозольным антисептиком. Если дупло имеет большой размер в поперечнике или длиной около полуметра, то необходимо  провести  фумигацию или  обработку  савой также
-                    в аэрозольном варианте для предотвращения развития  в древесине муравьев, точильщиков и образования гнезд ос и шершней....
+                    {{ $page->name }}
                 </div>
-                <a href="#" class="post-link">Подробнее</a>
+                <a href="{{ $page->slug }}" class="post-link">Подробнее</a>
                 @endforeach
             @endif
         </ol>
