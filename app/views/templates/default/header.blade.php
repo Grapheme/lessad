@@ -1,7 +1,7 @@
 <header>
     <div class="search">
         {{ Form::open(array('url'=>link::to('search/request'),'method'=>'post')) }}
-            <input type="text" placeholder="Поиск" name="search_request" class="search-input" value="{{ Session::get('search_request') }}">
+            <input type="text" placeholder="Поиск" name="search_request" class="search-input" value="{{ Input::get('query') }}">
             <button type="submit" class="search-icon"></button>
         {{ Form::close() }}
     </div>

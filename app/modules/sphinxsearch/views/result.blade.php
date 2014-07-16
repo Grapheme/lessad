@@ -1,6 +1,6 @@
 <?php
 if (Input::has('query')):
-    $result = SphinxsearchController::search();
+    $result = SphinxsearchController::search(Input::get('query'));
     $totalCount = (int) count($result['channels']) + (int) count($result['products']) + (int) count($result['reviews']) + (int) count($result['pages']);
     if($totalCount == 0):
         $totalCount = 'Ничего не найдено';
