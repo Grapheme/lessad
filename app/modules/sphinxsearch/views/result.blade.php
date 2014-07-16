@@ -16,7 +16,7 @@ endif;
                 @foreach($result['channels'] as $channel)
             <li>
                 <div class="search-text">
-                    <strong>{{ $channel->title }}</strong>
+                    <strong>{{ $channel->title }}</strong><br />
                     {{ $channel->short }}
                 </div>
                 @if(!empty($channel->link))
@@ -25,6 +25,7 @@ endif;
                 @endforeach
             @endif
             @if(!is_null($result['products']) && count($result['products']))
+            <h2>Продукция</h2>
                 @foreach($result['products'] as $product)
             <li>
                 <div class="search-text">
@@ -39,6 +40,7 @@ endif;
                 @endforeach
             @endif
             @if(!is_null($result['reviews']) && $result['reviews']->count())
+            <h2>Отзывы</h2>
                 @foreach($result['reviews'] as $review)
             <li>
                 <div class="search-text">
@@ -49,6 +51,7 @@ endif;
                 @endforeach
             @endif
             @if(!is_null($result['pages']) && $result['pages']->count())
+            <h2>Страницы</h2>
                 @foreach($result['pages'] as $page)
             <li>
                 <div class="search-text">
