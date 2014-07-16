@@ -55,7 +55,7 @@ endif;
                 @foreach($result['pages'] as $page)
             <li>
                 <div class="search-text">
-                    {{ $page->metas->name }}
+                    {{ $page->metas->first()->name }}
                 </div>
                 <a href="{{ $page->slug }}" class="post-link">Подробнее</a>
                 @endforeach
