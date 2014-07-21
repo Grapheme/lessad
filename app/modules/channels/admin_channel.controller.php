@@ -294,6 +294,13 @@ class AdminChannelController extends BaseController {
         if (File::exists(public_path($channel->file))):
             File::delete(public_path($channel->file));
         endif;
+        if($image = $channel->images()->first()):
+            if (!empty($image->name) && File::exists(public_path('uploads/galleries/thumbs/'.$image->name))):
+                File::delete(public_path('uploads/galleries/thumbs/'.$image->name));
+                File::delete(public_path('uploads/galleries/'.$image->name));
+                Photo::find($image->id)->delete();
+            endif;
+        endif;
         $channel->delete();
 		$json_request['responseText'] = 'Элемент канала удален';
 		$json_request['status'] = TRUE;
