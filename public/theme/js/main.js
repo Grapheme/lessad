@@ -49,56 +49,56 @@ var List = (function(){
 
 })();
 
-var Parallax = (function(){
-
-	var parPos = [];
-	var scrollDown;
-
-	var setVars = function() {
-		parPos[0] = $('.par-item').eq(0).offset().top;
-		parPos[1] = $('.par-item').eq(1).offset().top;
-		scrollDown = $(window).scrollTop() + $(window).height();
-	}
-	
-	var set = function() {
-		if(check(0)) {
-			var y1 = Math.round((scrollDown - parPos[0]) / 6) + pos1;
-			$('.par-item').eq(0).attr('style', '-webkit-transform: translateY(' + y1 + 'px); transform: translateY(' + y1 + 'px);');
-		}
-
-		if(check(1)) {
-			var y2 = Math.round((scrollDown - parPos[1]) / 3) + pos2;
-			$('.par-item').eq(1).attr('style', '-webkit-transform: translateY(' + y2 + 'px); transform: translateY(' + y2 + 'px);');
-		}
-	}
-
-	var init = function() {
-		if($('.parallax').length == 0) return;
-
-		$(window).on('scroll', function(){
-			setVars();
-			set();
-		});
-
-		var pos1 = $('.par-item').eq(0).position().top;
-		var pos2 = $('.par-item').eq(1).position().top;
-
-		setVars();
-		set();
-	}
-
-	var check = function(number) {
-		if(parPos[number] < scrollDown && parPos[number] + $('.par-item').eq(number).height() > $(window).scrollTop())
-		{
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	init();
-
-})();
+//var Parallax = (function(){
+//
+//	var parPos = [];
+//	var scrollDown;
+//
+//	var setVars = function() {
+//		parPos[0] = $('.par-item').eq(0).offset().top;
+//		parPos[1] = $('.par-item').eq(1).offset().top;
+//		scrollDown = $(window).scrollTop() + $(window).height();
+//	}
+//
+//	var set = function() {
+//		if(check(0)) {
+//			var y1 = Math.round((scrollDown - parPos[0]) / 6) + pos1;
+//			$('.par-item').eq(0).attr('style', '-webkit-transform: translateY(' + y1 + 'px); transform: translateY(' + y1 + 'px);');
+//		}
+//
+//		if(check(1)) {
+//			var y2 = Math.round((scrollDown - parPos[1]) / 3) + pos2;
+//			$('.par-item').eq(1).attr('style', '-webkit-transform: translateY(' + y2 + 'px); transform: translateY(' + y2 + 'px);');
+//		}
+//	}
+//
+//	var init = function() {
+//		if($('.parallax').length == 0) return;
+//
+//		$(window).on('scroll', function(){
+//			setVars();
+//			set();
+//		});
+//
+//		var pos1 = $('.par-item').eq(0).position().top;
+//		var pos2 = $('.par-item').eq(1).position().top;
+//
+//		setVars();
+//		set();
+//	}
+//
+//	var check = function(number) {
+//		if(parPos[number] < scrollDown && parPos[number] + $('.par-item').eq(number).height() > $(window).scrollTop())
+//		{
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
+//
+//	init();
+//
+//})();
 
 var Posts = (function(){
 
