@@ -142,7 +142,13 @@ class AdminReviewsController extends BaseController {
         $json_request = array('status'=>FALSE, 'responseText'=>'');
         if(Request::ajax()):
             $review = $this->review->find($id);
-//            $image = $review->image();
+            if($image = $review->images()->first()):
+                if (!empty($image->name) && File::exists(public_path('uploads/galleries/thumbs/'.$image->name))):
+                    File::delete(public_path('uploads/galleries/thumbs/'.$image->name));
+                    File::delete(public_path('uploads/galleries/'.$image->name));
+                    Photo::find($image->id)->delete();
+                endif;
+            endif;
             $review->delete();
             $json_request['responseText'] = 'Отзыв удален';
             $json_request['status'] = TRUE;
