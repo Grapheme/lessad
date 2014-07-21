@@ -47,7 +47,7 @@
 					<section>
 						<label class="label">Краткое описание</label>
 						<label class="textarea">
-							{{ Form::textarea('short') }}
+							{{ Form::textarea('short',NULL,array('class'=>'redactor')) }}
 						</label>
 					</section>
                     <section>
