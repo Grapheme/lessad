@@ -22,7 +22,10 @@
 			"app/database/seeds",
 			"app/tests/TestCase.php",
 			"app/libraries"
-		]
+		],
+        "files" : [
+            "app/helpers.php"
+        ]
 	},
 	"scripts": {
 		"post-install-cmd": [

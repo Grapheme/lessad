@@ -141,17 +141,10 @@ class AdminReviewsController extends BaseController {
         $this->moduleActionPermission('news', 'delete');
         $json_request = array('status'=>FALSE, 'responseText'=>'');
         if(Request::ajax()):
-            ## Следующая строка почему-то не работает:
-            #$b = $this->news_meta->where('news_id', $id)->delete;
-            ## Ну да ладно, удалим все языковые версии вот так:
-            $metas = $this->news_meta->where('news_id', $id)->get();
-            foreach ($metas as $meta)
-                @$meta->delete();
-            ## Удаляем саму страницу
-            $a = @$this->news->find($id)->delete();
-            ## Возвращаем сообщение чт овсе ОК
-            #if( $a && $b ):
-            $json_request['responseText'] = 'Новость удалена';
+            $review = $this->review->find($id);
+//            $image = $review->image();
+            $review->delete();
+            $json_request['responseText'] = 'Отзыв удален';
             $json_request['status'] = TRUE;
         #endif;
         else:
