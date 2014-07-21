@@ -87,6 +87,7 @@
 	var validation_messages = {
 		title: { required: 'Укажите название' },
 		category_id: { required: 'Укажите категорию', min: 'Укажите категорию' },
+        link : { required: 'Укажите ссылку на товар' }
 		//desc: { required: 'Укажите описание' },
 		//image: { required: 'Загрузите изображение' },
 	};
