@@ -20,7 +20,6 @@ class Product extends BaseModel {
     public  function images(){
         return $this->belongsTo('Photo','image_id');
     }
-
     /*
 	public function group(){
 		return $this->hasOne('Group', 'group_id', 'id');

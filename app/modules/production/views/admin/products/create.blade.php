@@ -23,7 +23,12 @@
 							{{ Form::text('title', '') }}
 						</label>
 					</section>
-
+                    <section>
+						<label class="label">Ссылка на страницу</label>
+						<label class="input">
+							{{ Form::text('link', '') }}
+						</label>
+					</section>
 					<section>
 						<label class="label">Категория</label>
 						<label class="select">
