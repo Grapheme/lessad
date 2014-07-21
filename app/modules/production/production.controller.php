@@ -69,7 +69,16 @@ class ProductionController extends BaseController {
         else:
             return App::abort(404);
         endif;
-        return View::make($this->tpl.$this->template,compact('product'));
+        return View::make($this->tpl.$this->template,
+            array(
+                'product' => $product,
+                'page_title'=>$product['title'],
+                'page_description'=>'',
+                'page_keywords'=>'',
+                'page_author'=>'',
+                'page_h1'=>$product['title']
+            )
+        );
     }
 
 }
