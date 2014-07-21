@@ -80,6 +80,7 @@
 	var validation_rules = {
 		title: { required: true },
 		category_id: { required: true, min: 1 },
+        link: { required: true},
 		//desc: { required: true },
 	};
 	var validation_messages = {

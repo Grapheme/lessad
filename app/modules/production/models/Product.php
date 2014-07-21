@@ -9,6 +9,7 @@ class Product extends BaseModel {
 	public static $rules = array(
 		'title' => 'required',
 		'category_id' => 'required|min:1',
+        'link' => 'required'
 		#'desc' => 'required',
 	);
 
