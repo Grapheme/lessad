@@ -1,5 +1,5 @@
 <?php
-$channel = Channel::where('category_id',2)->take(3)->get();
+$channel = Channel::where('category_id',2)->take(100)->get();
 ?>
 @if($channel->count())
 <div class="about-posts">
@@ -23,7 +23,7 @@ $channel = Channel::where('category_id',2)->take(3)->get();
                 @endforeach
             </ul>
         </div>
-        @if(Channel::where('category_id',2)->count() > 3)
+        @if(Channel::where('category_id',2)->count() > 100)
         <a href="javascript::void(0);" class="post-link js-posts">Показать все</a>
         @endif
     </div>
