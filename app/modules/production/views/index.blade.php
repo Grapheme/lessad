@@ -13,7 +13,7 @@ endif;
                 <a class="product-photo" href="{{ link::to('catalog/'.$product['link']) }}" style="background-image: url(uploads/galleries/{{ $product['images']['name'] }});"></a>
                 <div class="product-info">
                     <div class="block-title">
-                        <a href="{{ $product['link'] }}">{{ $product['title'] }}</a>
+                        <a target="_blank" href="{{ $product['link'] }}">{{ $product['title'] }}</a>
                     </div>
                     <div class="us-text">
                         {{ $product['short'] }}
