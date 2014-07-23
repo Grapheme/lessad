@@ -10,6 +10,7 @@
                 <div class="name">{{ $review->name }}</div>
                 <div class="post">{{ $review->position }}</div>
                 <div class="message">{{ $review->content }}</div>
+                <a href="#" class="review-link"></a>
             @endforeach
         </ul>
     </div>

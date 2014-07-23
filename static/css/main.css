@@ -450,7 +450,6 @@ header .nav-line .line {
 }
 .feedback .feedb-messages li {
   box-sizing: border-box;
-  cursor: pointer;
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -463,6 +462,14 @@ header .nav-line .line {
 }
 .feedback .feedb-messages li:nth-of-type(3n) {
   margin-right: 0;
+}
+.feedback .feedb-messages li .review-link {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 .feedback .feedb-messages li .name {
   font-size: 1.3125rem;
@@ -867,7 +874,10 @@ footer .footer-bottom .ftr-link {
   margin-left: 0.625rem;
 }
 .products li .product-info .block-title {
+  display: inline-block;
   padding-top: 0;
+  color: #000;
+  text-decoration: none;
 }
 .products li .product-info .product-table {
   margin-top: 1.875rem;
