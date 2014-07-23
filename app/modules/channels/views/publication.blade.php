@@ -1,5 +1,4 @@
 <?php
-
 $channelCategory = ChannelCategory::where('slug','publication')->first();
 $channel = Channel::where('category_id',@$channelCategory->id)->take(100)->get();
 ?>
