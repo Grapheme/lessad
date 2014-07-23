@@ -88,7 +88,7 @@ class link {
         endif;
 //        Helper::dd($link);
 //        return url($link);
-        return Config::get('app.local_prefix_url').$link;
+        return url(Config::get('app.local_prefix_url').$link);
 
 		$_locale = Session::get('locale');
 
