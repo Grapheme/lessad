@@ -13,7 +13,7 @@ class link {
     
     
 	public static function to($link = NULL){
-        return url(Config::get('app.local_prefix_url').$link);
+        return url(Config::get('app.local_prefix_url').'/'.$link);
     }
     
 	public static function i18n($link = NULL){
