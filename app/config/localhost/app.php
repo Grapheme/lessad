@@ -12,6 +12,6 @@ return array(
 	'default_page_title' => 'ЛесСад',
 
 	'debug' => TRUE,
-	'url' => '',
-    'local_prefix_url' => ''
+	'url' => 'http://lessad/',
+    'local_prefix_url' => 'lessad/public'
 );
