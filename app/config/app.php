@@ -13,7 +13,7 @@ return array(
 	'template' => 'default',	
 	'manifest' => storage_path('meta'),
 
-	'debug' => TRUE,
+	'debug' => FALSE,
 	'url' => 'http://lessad.ru/',
     'local_prefix_url' => '',
 	'timezone' => 'UTC',
