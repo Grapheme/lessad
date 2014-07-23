@@ -15,7 +15,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'lessad',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'perl03',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
