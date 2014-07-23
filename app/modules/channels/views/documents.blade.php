@@ -15,8 +15,8 @@ endif;
                     <div class="doc-img" style="background-image: url(uploads/galleries/{{ $doc['images']['name'] }})"></div>
                     <div class="doc-type"><span>{{ File::extension(public_path($doc['file'])) }}</span></div>
                 </div>
-                <a href="{{ $doc['file'] }}" class="doc-name">{{ $doc['title'] }}</a>
-                <div class="doc-size">{{ $doc['short'] }}</div>
+                <a href="{{ $doc['file'] }}" target="_blank" class="doc-name">{{ $doc['title'] }}</a>
+                <a class="doc-size" href="{{ $doc['file'] }}" target="_blank">{{ $doc['short'] }}</a>
             @endforeach
         </ul>
     </div>

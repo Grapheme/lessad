@@ -19,7 +19,7 @@ $channel = Channel::where('category_id',@$channelCategory->id)->take(100)->get()
                     @if(!empty($pub->link))
                     <a href="{{ link::to($pub->link) }}" class="title">{{ $pub->title }}</a>
                     @else
-                    {{ $pub->title }}
+                    <div class="title">{{ $pub->title }}</div>
                     @endif
                     <div class="desc">{{ $pub->short }}</div>
                 @endforeach

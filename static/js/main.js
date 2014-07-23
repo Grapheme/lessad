@@ -51,6 +51,8 @@ var List = (function(){
 
 var Parallax = (function(){
 
+	return;
+
 	var parPos = [];
 	var scrollDown;
 
@@ -116,6 +118,10 @@ var Posts = (function(){
 			$('.posts-window').css('height', $('.post-ul').height());
 			return false;
 		});
+
+		if($('.post-ul li').length <= 3) {
+			$('.js-posts').addClass('active');
+		}
 	}	
 
 	init();
