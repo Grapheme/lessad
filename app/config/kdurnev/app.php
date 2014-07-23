@@ -9,8 +9,5 @@ return array(
 	'use_css_local' => TRUE,
 	'use_scripts_local' => TRUE,
 	
-	'default_page_title' => 'ЛесСад',
-
 	'debug' => TRUE,
-	'url' => 'http://lessad/',
 );
