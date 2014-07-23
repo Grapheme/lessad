@@ -13,5 +13,4 @@ return array(
 
 	'debug' => TRUE,
 	'url' => '',
-    'local_prefix_url' => ''
 );
