@@ -13,7 +13,7 @@ class link {
     
     
 	public static function to($link = NULL){
-        return url(Config::get('app.local_prefix_url').'/'.$link);
+        return url($link);
     }
     
 	public static function i18n($link = NULL){
@@ -61,7 +61,7 @@ class link {
             #Helper::dd($return);
             return $return;
 		} else {
-			return url(Config::get('app.local_prefix_url').$link);
+			return url($link);
 		}
 	}
 
@@ -83,13 +83,12 @@ class link {
 
 	public static function createLink($link = NULL){
 
-		if(!is_null($link) && $link != "/" && mb_substr($link, 0, 1) != '/')
+		if(!is_null($link) && $link != "/" && mb_substr($link, 0, 1) != '/'):
 			$link = '/'.$link;
-        $link = Config::get('app.local_prefix_url').$link;
+        endif;
 //        Helper::dd($link);
-
 //        return url($link);
-        return $link;
+        return Config::get('app.local_prefix_url').$link;
 
 		$_locale = Session::get('locale');
 
