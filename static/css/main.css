@@ -450,6 +450,7 @@ header .nav-line .line {
 }
 .feedback .feedb-messages li {
   box-sizing: border-box;
+  cursor: pointer;
   position: relative;
   display: inline-block;
   vertical-align: top;
