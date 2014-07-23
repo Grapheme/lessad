@@ -3,4 +3,4 @@ public/uploads
 /vendor
 composer.phar
 composer.lock
-.htaccess
+/.htaccess
