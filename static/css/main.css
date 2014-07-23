@@ -344,21 +344,27 @@ header .nav-line .line {
   width: 19.375rem;
   height: 19.375rem;
   border-radius: 9.6875rem;
-  left: 41.875rem;
-  top: 8.125rem;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 .main-info .info-circle[data-id="care"] {
+  left: 41.875rem;
+  top: 8.125rem;
   background: url(../img/circle-care.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle[data-id="young"] {
+  left: 21.875rem;
+  top: 10.6875rem;
   background: url(../img/circle-young.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle[data-id="defend"] {
+  top: 490px;
+  left: 350px;
   background: url(../img/circle-defend.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle[data-id="rest"] {
+  left: 640px;
+  top: 460px;
   background: url(../img/circle-rest.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle.active {
