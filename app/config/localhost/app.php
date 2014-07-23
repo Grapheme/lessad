@@ -13,5 +13,5 @@ return array(
 
 	'debug' => TRUE,
 	'url' => 'http://lessad/',
-    'local_prefix_url' => 'localhost/lessad/public'
+    'local_prefix_url' => 'http://localhost/lessad/public/'
 );
