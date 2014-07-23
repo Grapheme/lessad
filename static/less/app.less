@@ -378,6 +378,8 @@ header {
 			.post {
 				font-size: 18rem / @htmlFontSize;
 				color: #5c5c5c;
+				margin-top: 10px;
+				line-height: 20px;
 			}
 
 			.message {
@@ -570,6 +572,7 @@ footer {
 	}
 
 	.about-poem {
+		font-family: 'PT Serif', serif;
 		position: absolute;
 		right: 0;
 		top: 20rem / @htmlFontSize;
@@ -627,6 +630,7 @@ footer {
 			vertical-align: top;
 			width: 370rem / @htmlFontSize;
 			margin-right: 65rem / @htmlFontSize;
+			margin-bottom: 35rem / @htmlFontSize;
 
 			&:nth-of-type(3n) {
 				margin-right: 0;
@@ -658,21 +662,23 @@ footer {
 		}
 
 		.doc-size {
+			display: inline-block;
+			text-decoration: none;
 			font-size: 21rem / @htmlFontSize;
 			margin-top: 5rem / @htmlFontSize;
 			color: #6a6a6a;
 		}
 
 		.doc-type {
-
 			position: absolute;
 			bottom: 45rem / @htmlFontSize;
-				right: -5rem / @htmlFontSize;
+			right: -5rem / @htmlFontSize;
 
 			span {
 				position: relative;
 				font-family: 'gotha_med';
 				font-size: 40rem / @htmlFontSize;
+				text-transform: uppercase;
 				height: 50rem / @htmlFontSize;
 				line-height: 55rem / @htmlFontSize;
 				display: inline-block;

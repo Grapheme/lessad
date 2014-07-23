@@ -344,21 +344,27 @@ header .nav-line .line {
   width: 19.375rem;
   height: 19.375rem;
   border-radius: 9.6875rem;
-  left: 41.875rem;
-  top: 8.125rem;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 .main-info .info-circle[data-id="care"] {
+  left: 41.875rem;
+  top: 8.125rem;
   background: url(../img/circle-care.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle[data-id="young"] {
+  left: 21.875rem;
+  top: 10.6875rem;
   background: url(../img/circle-young.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle[data-id="defend"] {
+  top: 490px;
+  left: 350px;
   background: url(../img/circle-defend.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle[data-id="rest"] {
+  left: 640px;
+  top: 460px;
   background: url(../img/circle-rest.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle.active {
@@ -457,6 +463,14 @@ header .nav-line .line {
 .feedback .feedb-messages li:nth-of-type(3n) {
   margin-right: 0;
 }
+.feedback .feedb-messages li .review-link {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .feedback .feedb-messages li .name {
   font-size: 1.3125rem;
   font-weight: 600;
@@ -465,6 +479,8 @@ header .nav-line .line {
 .feedback .feedb-messages li .post {
   font-size: 1.125rem;
   color: #5c5c5c;
+  margin-top: 10px;
+  line-height: 20px;
 }
 .feedback .feedb-messages li .message {
   font-size: 1.125rem;
@@ -624,6 +640,7 @@ footer .footer-bottom .ftr-link {
   right: 0;
 }
 .about-top .about-poem {
+  font-family: 'PT Serif', serif;
   position: absolute;
   right: 0;
   top: 1.25rem;
@@ -676,6 +693,7 @@ footer .footer-bottom .ftr-link {
   vertical-align: top;
   width: 23.125rem;
   margin-right: 4.0625rem;
+  margin-bottom: 2.1875rem;
 }
 .about-docs .documents li:nth-of-type(3n) {
   margin-right: 0;
@@ -705,6 +723,8 @@ footer .footer-bottom .ftr-link {
   margin-top: 3.125rem;
 }
 .about-docs .documents .doc-size {
+  display: inline-block;
+  text-decoration: none;
   font-size: 1.3125rem;
   margin-top: 0.3125rem;
   color: #6a6a6a;
@@ -718,6 +738,7 @@ footer .footer-bottom .ftr-link {
   position: relative;
   font-family: 'gotha_med';
   font-size: 2.5rem;
+  text-transform: uppercase;
   height: 3.125rem;
   line-height: 3.4375rem;
   display: inline-block;
@@ -860,7 +881,10 @@ footer .footer-bottom .ftr-link {
   margin-left: 0.625rem;
 }
 .products li .product-info .block-title {
+  display: inline-block;
   padding-top: 0;
+  color: #000;
+  text-decoration: none;
 }
 .products li .product-info .product-table {
   margin-top: 1.875rem;

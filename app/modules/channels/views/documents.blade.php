@@ -15,7 +15,7 @@ endif;
                     <div class="doc-type"><span>{{ File::extension(public_path($doc['file'])) }}</span></div>
                 </div>
                 <a href="{{ $doc['file'] }}" target="_blank" class="doc-name">{{ $doc['title'] }}</a>
-                <div class="doc-size"><a href="{{ $doc['file'] }}" target="_blank">{{ $doc['short'] }}</a></div>
+                <a class="doc-size" href="{{ $doc['file'] }}" target="_blank">{{ $doc['short'] }}</a>
             @endforeach
         </ul>
     </div>
