@@ -1,5 +1,7 @@
 <?php
-$channel = Channel::where('category_id',2)->take(100)->get();
+
+$channelCategory = ChannelCategory::where('slug','publication')->first();
+$channel = Channel::where('category_id',@$channelCategory->id)->take(100)->get();
 ?>
 @if($channel->count())
 <div class="about-posts">
