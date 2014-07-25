@@ -16,8 +16,7 @@ endif;
                 @foreach($result['channels'] as $channel)
             <li>
                 <div class="search-text">
-                    <strong>{{ $channel->title }}</strong><br />
-                    {{ $channel->short }}
+                    {{ $channel->title }}. {{ Str::words(strip_tags($channel->short), 100, ' ...') }}
                 </div>
                 @if(!empty($channel->link))
                 <a href="{{ $channel->link }}" class="post-link">Подробнее</a>
@@ -28,23 +27,18 @@ endif;
                 @foreach($result['products'] as $product)
             <li>
                 <div class="search-text">
-                    <div class="product-info">
-                        <div class="block-title">{{ $product['title'] }}</div>
-                        <div class="us-text">
-                            {{ $product['short'] }}
-                        </div>
-                        {{ $product['desc'] }}
-                    </div>
+                    {{ $product['title'] }}. {{ Str::words(strip_tags($product['short']), 100, ' ...') }}
                 </div>
+                @if(!empty($product->link))
+                <a href="{{ $product->link }}" class="post-link">Подробнее</a>
+                @endif
                 @endforeach
             @endif
             @if(!is_null($result['reviews']) && $result['reviews']->count())
                 @foreach($result['reviews'] as $review)
             <li>
                 <div class="search-text">
-                    <div class="name">{{ $review->name }}</div>
-                    <div class="post">{{ $review->position }}</div>
-                    <div class="message">{{ $review->content }}</div>
+                    {{ $review->name }}. {{ Str::words(strip_tags($review->content), 100, ' ...') }}
                 </div>
                 @endforeach
             @endif
@@ -52,7 +46,7 @@ endif;
                 @foreach($result['pages'] as $page)
             <li>
                 <div class="search-text">
-                    {{ $page->metas->first()->name }}
+                    {{ $page->metas->first()->name }}. {{ Str::words(strip_tags($page->metas->first()->content), 100, ' ...') }}
                 </div>
                 <a href="{{ $page->slug }}" class="post-link">Подробнее</a>
                 @endforeach

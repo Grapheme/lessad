@@ -14,7 +14,7 @@ class CreateGroupsTable extends Migration {
         		$table->string('name',20)->unique();
         		$table->string('desc',20);
         		$table->string('dashboard',20);
-        		$table->string('start_url', 256)->nullable();
+        		$table->string('start_url', 256);
         		$table->timestamps();
         	});
             echo(' + ' . $this->table . PHP_EOL);
