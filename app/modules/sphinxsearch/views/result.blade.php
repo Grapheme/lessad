@@ -29,8 +29,8 @@ endif;
                 <div class="search-text">
                     {{ $product['title'] }}. {{ Str::words(strip_tags($product['short']), 100, ' ...') }}
                 </div>
-                @if(!empty($product->link))
-                <a href="{{ $product->link }}" class="post-link">Подробнее</a>
+                @if(!empty($product['link']))
+                <a href="{{ $product['link'] }}" class="post-link">Подробнее</a>
                 @endif
                 @endforeach
             @endif
