@@ -7,9 +7,9 @@
                 @if(!empty($review->photo))
                 <div class="feedb-photo" style="background-image: url(uploads/galleries/{{ $review->photo->name  }})"></div>
                 @endif
-                <div class="name">{{ $review->name }}</div>
-                <div class="post">{{ $review->position }}</div>
-                <div class="message">{{ $review->preview }}</div>
+                <div class="name">{{ $review->meta->first()->name }}</div>
+                <div class="post">{{ $review->meta->first()->position }}</div>
+                <div class="message">{{ $review->meta->first()->preview }}</div>
                 @if (ReviewsController::$prefix_url !== FALSE):
                 <a href="{{ link::to(ReviewsController::$prefix_url.'/'.$review->meta->first()->seo_url) }}" class="review-link"></a>
                 @endif
