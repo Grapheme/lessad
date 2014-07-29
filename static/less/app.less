@@ -734,6 +734,36 @@ footer {
 			margin-top: 20rem / @htmlFontSize;
 			font-size: 18rem / @htmlFontSize;
 		}
+
+		.post-link {
+			margin-top: 10rem / @htmlFontSize;
+
+			&:after {
+				display: inline-block;
+				margin-left: 10rem / @htmlFontSize;
+				.transform(rotate(-90deg));
+			}
+		}
+
+		&.exp-ul {
+			li {
+				.box-sizing;
+				position: relative;
+				padding-left: 250rem / @htmlFontSize;
+				min-height: 170rem / @htmlFontSize;
+			}
+
+			.post-photo {
+				position: absolute;
+				border-radius: 170rem / 2 / @htmlFontSize;
+				top: 0;
+				left: 0;
+				width: 170rem / @htmlFontSize;
+				height: 170rem / @htmlFontSize;
+				background-size: cover;
+				background-position: center center;
+			}
+		}
 	}
 
 	.post-link {

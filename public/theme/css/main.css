@@ -790,6 +790,31 @@ footer .footer-bottom .ftr-link {
   margin-top: 1.25rem;
   font-size: 1.125rem;
 }
+.about-posts .post-ul .post-link {
+  margin-top: 0.625rem;
+}
+.about-posts .post-ul .post-link:after {
+  display: inline-block;
+  margin-left: 0.625rem;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.about-posts .post-ul.exp-ul li {
+  box-sizing: border-box;
+  position: relative;
+  padding-left: 15.625rem;
+  min-height: 10.625rem;
+}
+.about-posts .post-ul.exp-ul .post-photo {
+  position: absolute;
+  border-radius: 5.3125rem;
+  top: 0;
+  left: 0;
+  width: 10.625rem;
+  height: 10.625rem;
+  background-size: cover;
+  background-position: center center;
+}
 .about-posts .post-link {
   margin-top: 3.4375rem;
 }

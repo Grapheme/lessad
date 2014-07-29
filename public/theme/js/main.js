@@ -116,6 +116,8 @@ var Posts = (function(){
 			$('.posts-window').css('height', $('.post-ul').height());
 			return false;
 		});
+
+		$('.exp-ul').parent().css('height', 'auto');
 	}	
 
 	init();
