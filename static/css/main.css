@@ -147,18 +147,13 @@ textarea {
   margin: 0 auto;
 }
 .wrapper-full {
+  position: relative;
+  min-height: 100%;
   min-width: 80rem;
   overflow: hidden;
-  min-height: 100%;
-  margin-bottom: -12.5rem;
 }
-.wrapper-full:after {
-  content: "";
-  display: block;
-}
-footer,
-.wrapper-full:after {
-  height: 12.5rem;
+main {
+  padding-bottom: 12.5rem;
 }
 .main-page {
   position: relative;
@@ -207,7 +202,7 @@ h2 {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   display: inline-block;
-  padding: 0 3.125rem;
+  padding: 0 4.6875rem;
   font-size: 1.625rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -253,8 +248,9 @@ header .nav-main ul a {
   text-decoration: none;
   color: #343434;
   line-height: 1.875rem;
-  padding-right: 1.25rem;
-  padding-left: 1.25rem;
+  padding-right: 1.4375rem;
+  padding-left: 1.4375rem;
+  letter-spacing: .5px;
 }
 header .nav-main ul li {
   display: inline-block;
@@ -437,9 +433,10 @@ header .nav-line .line {
   background: url(../img/green-back.jpg);
   font-family: "proxima";
   text-shadow: 1px 1px 1px #000000;
+  line-height: 3.75rem;
 }
 .feedback {
-  padding: 1.25rem 0 3.125rem;
+  padding: 2.5rem 0 6.25rem;
   background: #e8e8e8;
 }
 .feedback .feedb-messages {
@@ -501,6 +498,8 @@ header .nav-line .line {
 }
 footer {
   box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
   width: 100%;
   border-top: 1px solid #e8e8e8;
   padding: 1.875rem 0 1.5625rem;
@@ -614,7 +613,7 @@ footer .footer-bottom .ftr-link {
   width: 42.8125rem;
 }
 .about-top .about-text {
-  margin-bottom: 5.3125rem;
+  margin-bottom: 8.125rem;
   width: 37.5rem;
 }
 .about-top .about-list {
@@ -646,8 +645,8 @@ footer .footer-bottom .ftr-link {
 .about-top .about-poem {
   font-family: 'PT Serif', serif;
   position: absolute;
-  right: 0;
-  top: 1.25rem;
+  right: 3.125rem;
+  top: 2.5rem;
   font-style: italic;
   font-size: 1.9375rem;
   color: #959595;

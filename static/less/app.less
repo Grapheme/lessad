@@ -6,19 +6,15 @@
 }
 
 .wrapper-full {
+	position: relative;
+	min-height: 100%;
 	min-width: 1280rem / @htmlFontSize;
 	overflow: hidden;
-	min-height: 100%;
-	margin-bottom: -200rem / @htmlFontSize;
+	//margin-bottom: -200rem / @htmlFontSize;
 }
 
-.wrapper-full:after {
-  content: "";
-  display: block;
-}
-
-footer, .wrapper-full:after {
-  height: 200rem / @htmlFontSize; 
+main {
+	padding-bottom: 200rem / @htmlFontSize;
 }
 
 .main-page {
@@ -75,7 +71,7 @@ h2 {
 .us-btn {
 	.transition;
 	display: inline-block;
-	padding: 0 50rem / @htmlFontSize;
+	padding: 0 75rem / @htmlFontSize;
 	font-size: 26rem / @htmlFontSize;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -124,8 +120,9 @@ header {
 				text-decoration: none;
 				color: #343434;
 				line-height: 30rem / @htmlFontSize;
-				padding-right: 20rem / @htmlFontSize;
-				padding-left: 20rem / @htmlFontSize;
+				padding-right: 23rem / @htmlFontSize;
+				padding-left: 23rem / @htmlFontSize;
+				letter-spacing: .5px;
 			}
 
 			li {
@@ -337,10 +334,11 @@ header {
 	background: url(../img/green-back.jpg);
 	font-family: "proxima";
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	line-height: 60rem / @htmlFontSize;
 }
 
 .feedback {
-	padding: 20rem / @htmlFontSize 0 50rem / @htmlFontSize;
+	padding: 40rem / @htmlFontSize 0 100rem / @htmlFontSize;
 	background: #e8e8e8;
 
 	.feedb-messages {
@@ -406,6 +404,8 @@ header {
 
 footer {
 	.box-sizing;
+	position: absolute;
+	bottom: 0;
 	width: 100%;
 	border-top: 1px solid #e8e8e8;
 	padding: 30rem / @htmlFontSize 0 25rem / @htmlFontSize;
@@ -541,7 +541,7 @@ footer {
 	}
 
 	.about-text {
-		margin-bottom: 85rem / @htmlFontSize;
+		margin-bottom: 130rem / @htmlFontSize;
 		width: 600rem / @htmlFontSize;
 	}
 
@@ -578,8 +578,8 @@ footer {
 	.about-poem {
 		font-family: 'PT Serif', serif;
 		position: absolute;
-		right: 0;
-		top: 20rem / @htmlFontSize;
+		right: 50rem / @htmlFontSize;
+		top: 40rem / @htmlFontSize;
 		font-style: italic;
 		font-size: 31rem / @htmlFontSize;
 		color: #959595;
@@ -1059,7 +1059,7 @@ footer {
 	}
 
 	.post-link {
-		
+
 		&:after {
 			display: inline-block;
 			.transform(rotate(-90deg));
