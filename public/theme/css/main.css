@@ -72,7 +72,8 @@ textarea {
   color: #222;
 }
 html {
-  font-size: 16px;
+  /*font-size: ~"@{htmlFontSize}px";*/
+  font-size: 15px;
   font-family: "proxima";
   line-height: 1.4;
   height: 100%;
@@ -331,7 +332,7 @@ header .nav-line .line {
   position: relative;
   left: -4.375rem;
   height: 59.375rem;
-  background: url(../img/tree.png) no-repeat center center;
+  background: url(../img/tree.png) no-repeat 65% center / 65%;
 }
 .main-info .info-circle {
   box-sizing: border-box;
@@ -355,13 +356,13 @@ header .nav-line .line {
   background: url(../img/circle-young.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle[data-id="defend"] {
-  top: 490px;
-  left: 350px;
+  top: 30.625rem;
+  left: 21.875rem;
   background: url(../img/circle-defend.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle[data-id="rest"] {
-  left: 640px;
-  top: 460px;
+  left: 40rem;
+  top: 28.75rem;
   background: url(../img/circle-rest.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle.active {
