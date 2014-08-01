@@ -142,7 +142,7 @@ textarea {
    ========================================================================== */
 .wrapper {
   position: relative;
-  width: 77.5rem;
+  width: 71.25rem;
   padding: 0 1.25rem;
   margin: 0 auto;
 }
@@ -329,6 +329,7 @@ header .nav-line .line {
 }
 .main-info {
   position: relative;
+  left: -4.375rem;
   height: 59.375rem;
   background: url(../img/tree.png) no-repeat center center;
 }
@@ -450,7 +451,7 @@ header .nav-line .line {
   position: relative;
   display: inline-block;
   vertical-align: top;
-  width: 23.125rem;
+  width: 20.9375rem;
   margin-right: 4.0625rem;
   background: #fff;
   border-radius: 0.625rem;
@@ -694,7 +695,7 @@ footer .footer-bottom .ftr-link {
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
-  width: 23.125rem;
+  width: 20.9375rem;
   margin-right: 4.0625rem;
   margin-bottom: 2.1875rem;
 }
@@ -779,7 +780,7 @@ footer .footer-bottom .ftr-link {
 }
 .about-posts .post-ul li {
   margin-top: 5rem;
-  width: 53.125rem;
+  width: 50rem;
 }
 .about-posts .post-ul li:first-child {
   margin-top: 0;
@@ -878,7 +879,7 @@ footer .footer-bottom .ftr-link {
 .us-block .contact-block {
   display: inline-block;
   vertical-align: top;
-  width: 25rem;
+  width: 18rem;
   margin-left: 4.6875rem;
 }
 .us-block .contact-text {
@@ -897,16 +898,18 @@ footer .footer-bottom .ftr-link {
 .products li .product-photo {
   display: inline-block;
   vertical-align: top;
-  width: 14.375rem;
-  height: 14.375rem;
+  width: 13rem;
+  height: 13rem;
   background-size: contain;
   background-position: center center;
 }
 .products li .product-info {
+  position: relative;
   display: inline-block;
   vertical-align: top;
-  width: 23.4375rem;
+  width: 21.5625rem;
   margin-left: 0.625rem;
+  z-index: 2;
 }
 .products li .product-info .block-title {
   display: inline-block;
