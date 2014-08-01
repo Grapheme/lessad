@@ -797,25 +797,12 @@ footer {
 }
 
 .parallax {
-	.par-item:nth-of-type(1) {
-		position: absolute;
-		width: 176rem / @htmlFontSize;
-		height: 131rem / @htmlFontSize;
-		top: 0;
-		.transform(translateY(400px));
-		right: 200rem / @htmlFontSize;
-		background: url(../img/about-par1.png) no-repeat 0 0 e('/') 100% auto;
-	}
-
-	.par-item:nth-of-type(2) {
-		position: absolute;
-		width: 72rem / @htmlFontSize;
-		height: 73rem / @htmlFontSize;
-		top: 0;
-		.transform(translateY(90px));
-		right: 235rem / @htmlFontSize;
-		background: url(../img/about-par2.png) no-repeat 0 0 e('/') 100% auto;
-	}
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	background-image: url(../img/about-par1.png), url(../img/about-par2.png);
+	background-repeat: no-repeat;
+	background-position: 880px 400px, 988px 72px;
+	z-index: -1;
 }
 
 .us-block {
