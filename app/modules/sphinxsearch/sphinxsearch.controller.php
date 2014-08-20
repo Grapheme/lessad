@@ -108,7 +108,7 @@ class SphinxsearchController extends \BaseController {
     private static function getReviewsModels($foundRecords){
 
         if($recordIDs = self::getValueInObject($foundRecords)):
-            return Reviews::whereIn('id',$recordIDs)->with('photo')->get();
+            return Reviews::whereIn('id',$recordIDs)->with('meta')->with('photo')->get();
         endif;
         return null;
     }
