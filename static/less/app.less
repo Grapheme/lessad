@@ -1,24 +1,20 @@
 .wrapper {
 	position: relative;
-	width: 1240rem / @htmlFontSize;
+	width: 1140rem / @htmlFontSize;
 	padding: 0 20rem / @htmlFontSize;
 	margin: 0 auto;
 }
 
 .wrapper-full {
+	position: relative;
+	min-height: 100%;
 	min-width: 1280rem / @htmlFontSize;
 	overflow: hidden;
-	min-height: 100%;
-	margin-bottom: -200rem / @htmlFontSize;
+	//margin-bottom: -200rem / @htmlFontSize;
 }
 
-.wrapper-full:after {
-  content: "";
-  display: block;
-}
-
-footer, .wrapper-full:after {
-  height: 200rem / @htmlFontSize; 
+main {
+	padding-bottom: 200rem / @htmlFontSize;
 }
 
 .main-page {
@@ -75,7 +71,7 @@ h2 {
 .us-btn {
 	.transition;
 	display: inline-block;
-	padding: 0 50rem / @htmlFontSize;
+	padding: 0 75rem / @htmlFontSize;
 	font-size: 26rem / @htmlFontSize;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -124,8 +120,9 @@ header {
 				text-decoration: none;
 				color: #343434;
 				line-height: 30rem / @htmlFontSize;
-				padding-right: 20rem / @htmlFontSize;
-				padding-left: 20rem / @htmlFontSize;
+				padding-right: 23rem / @htmlFontSize;
+				padding-left: 23rem / @htmlFontSize;
+				letter-spacing: .5px;
 			}
 
 			li {
@@ -220,8 +217,9 @@ header {
 
 .main-info {
 	position: relative;
+	left: -70rem / @htmlFontSize;
 	height: 950rem / @htmlFontSize;
-	background: url(../img/tree.png) no-repeat center center;
+	background: url(../img/tree.png) no-repeat 65% center / 65%;
 
 	.info-circle {
 		.box-sizing;
@@ -245,14 +243,14 @@ header {
 		}
 
 		&[data-id="defend"] {
-			top: 490px;
-			left: 350px;
+			top: 490rem / @htmlFontSize;
+			left: 350rem / @htmlFontSize;
 			background: url(../img/circle-defend.png) no-repeat center center e('/') auto 200%;
 		}
 
 		&[data-id="rest"] {
-			left: 640px;
-			top: 460px;
+			left: 640rem / @htmlFontSize;
+			top: 460rem / @htmlFontSize;
 			background: url(../img/circle-rest.png) no-repeat center center e('/') auto 200%;
 		}
 
@@ -337,10 +335,11 @@ header {
 	background: url(../img/green-back.jpg);
 	font-family: "proxima";
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+	line-height: 60rem / @htmlFontSize;
 }
 
 .feedback {
-	padding: 20rem / @htmlFontSize 0 50rem / @htmlFontSize;
+	padding: 40rem / @htmlFontSize 0 100rem / @htmlFontSize;
 	background: #e8e8e8;
 
 	.feedb-messages {
@@ -352,7 +351,7 @@ header {
 			position: relative;
 			display: inline-block;
 			vertical-align: top;
-			width: 370rem / @htmlFontSize;
+			width: 335rem / @htmlFontSize;
 			margin-right: 65rem / @htmlFontSize;
 			background: #fff;
 			border-radius: 10rem / @htmlFontSize;
@@ -406,6 +405,8 @@ header {
 
 footer {
 	.box-sizing;
+	position: absolute;
+	bottom: 0;
 	width: 100%;
 	border-top: 1px solid #e8e8e8;
 	padding: 30rem / @htmlFontSize 0 25rem / @htmlFontSize;
@@ -473,14 +474,18 @@ footer {
 	}
 
 	.slide {
+		.box-sizing;
+		min-height: 100%;
+		background-repeat: no-repeat;
+		background-position: center center;
 		padding: 120rem / @htmlFontSize 0 150rem / @htmlFontSize;
 	}
 
 	.slide-text {
-		vertical-align: top;
+		position: absolute;
 		display: inline-block;
 		width: 600rem / @htmlFontSize;
-		margin-left: 100rem / @htmlFontSize;
+		left: 620rem / @htmlFontSize;
 	}
 
 	.title {
@@ -537,7 +542,7 @@ footer {
 	}
 
 	.about-text {
-		margin-bottom: 85rem / @htmlFontSize;
+		margin-bottom: 130rem / @htmlFontSize;
 		width: 600rem / @htmlFontSize;
 	}
 
@@ -574,8 +579,8 @@ footer {
 	.about-poem {
 		font-family: 'PT Serif', serif;
 		position: absolute;
-		right: 0;
-		top: 20rem / @htmlFontSize;
+		right: 50rem / @htmlFontSize;
+		top: 40rem / @htmlFontSize;
 		font-style: italic;
 		font-size: 31rem / @htmlFontSize;
 		color: #959595;
@@ -628,7 +633,7 @@ footer {
 			.box-sizing;
 			display: inline-block;
 			vertical-align: top;
-			width: 370rem / @htmlFontSize;
+			width: 335rem / @htmlFontSize;
 			margin-right: 65rem / @htmlFontSize;
 			margin-bottom: 35rem / @htmlFontSize;
 
@@ -717,7 +722,7 @@ footer {
 
 		li {
 			margin-top: 80rem / @htmlFontSize;
-			width: 850rem / @htmlFontSize;
+			width: 50rem;
 
 			&:first-child {
 				margin-top: 0;
@@ -733,6 +738,36 @@ footer {
 		.desc {
 			margin-top: 20rem / @htmlFontSize;
 			font-size: 18rem / @htmlFontSize;
+		}
+
+		.post-link {
+			margin-top: 10rem / @htmlFontSize;
+
+			&:after {
+				display: inline-block;
+				margin-left: 10rem / @htmlFontSize;
+				.transform(rotate(-90deg));
+			}
+		}
+
+		&.exp-ul {
+			li {
+				.box-sizing;
+				position: relative;
+				padding-left: 250rem / @htmlFontSize;
+				min-height: 170rem / @htmlFontSize;
+			}
+
+			.post-photo {
+				position: absolute;
+				border-radius: 170rem / 2 / @htmlFontSize;
+				top: 0;
+				left: 0;
+				width: 170rem / @htmlFontSize;
+				height: 170rem / @htmlFontSize;
+				background-size: cover;
+				background-position: center center;
+			}
 		}
 	}
 
@@ -762,25 +797,12 @@ footer {
 }
 
 .parallax {
-	.par-item:nth-of-type(1) {
-		position: absolute;
-		width: 176rem / @htmlFontSize;
-		height: 131rem / @htmlFontSize;
-		top: 0;
-		.transform(translateY(400px));
-		right: 200rem / @htmlFontSize;
-		background: url(../img/about-par1.png) no-repeat 0 0 e('/') 100% auto;
-	}
-
-	.par-item:nth-of-type(2) {
-		position: absolute;
-		width: 72rem / @htmlFontSize;
-		height: 73rem / @htmlFontSize;
-		top: 0;
-		.transform(translateY(90px));
-		right: 235rem / @htmlFontSize;
-		background: url(../img/about-par2.png) no-repeat 0 0 e('/') 100% auto;
-	}
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	background-image: url(../img/about-par1.png), url(../img/about-par2.png);
+	background-repeat: no-repeat;
+	background-position: 880px 400px, 988px 72px;
+	z-index: -1;
 }
 
 .us-block {
@@ -805,7 +827,7 @@ footer {
 	.contact-block {
 		display: inline-block;
 		vertical-align: top;
-		width: 400rem / @htmlFontSize;
+		width: 18rem;
 		margin-left: 75rem / @htmlFontSize;
 	}
 
@@ -825,17 +847,19 @@ footer {
 		.product-photo {
 			display: inline-block;
 			vertical-align: top;
-			width: 230rem / @htmlFontSize;
-			height: 230rem / @htmlFontSize;
+			width: 13rem;
+			height: 13rem;
 			background-size: contain;
 			background-position: center center;
 		}
 
 		.product-info {
+			position: relative;
 			display: inline-block;
 			vertical-align: top;
-			width: 375rem / @htmlFontSize;
+			width: 345rem / @htmlFontSize;
 			margin-left: 10rem / @htmlFontSize;
+			z-index: 2;
 
 			.block-title {
 				display: inline-block;
@@ -1025,6 +1049,7 @@ footer {
 	}
 
 	.post-link {
+
 		&:after {
 			display: inline-block;
 			.transform(rotate(-90deg));

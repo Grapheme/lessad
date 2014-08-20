@@ -72,7 +72,8 @@ textarea {
   color: #222;
 }
 html {
-  font-size: 16px;
+  /*font-size: ~"@{htmlFontSize}px";*/
+  font-size: 15px;
   font-family: "proxima";
   line-height: 1.4;
   height: 100%;
@@ -142,23 +143,18 @@ textarea {
    ========================================================================== */
 .wrapper {
   position: relative;
-  width: 77.5rem;
+  width: 71.25rem;
   padding: 0 1.25rem;
   margin: 0 auto;
 }
 .wrapper-full {
+  position: relative;
+  min-height: 100%;
   min-width: 80rem;
   overflow: hidden;
-  min-height: 100%;
-  margin-bottom: -12.5rem;
 }
-.wrapper-full:after {
-  content: "";
-  display: block;
-}
-footer,
-.wrapper-full:after {
-  height: 12.5rem;
+main {
+  padding-bottom: 12.5rem;
 }
 .main-page {
   position: relative;
@@ -207,7 +203,7 @@ h2 {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   display: inline-block;
-  padding: 0 3.125rem;
+  padding: 0 4.6875rem;
   font-size: 1.625rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -253,8 +249,9 @@ header .nav-main ul a {
   text-decoration: none;
   color: #343434;
   line-height: 1.875rem;
-  padding-right: 1.25rem;
-  padding-left: 1.25rem;
+  padding-right: 1.4375rem;
+  padding-left: 1.4375rem;
+  letter-spacing: .5px;
 }
 header .nav-main ul li {
   display: inline-block;
@@ -333,8 +330,9 @@ header .nav-line .line {
 }
 .main-info {
   position: relative;
+  left: -4.375rem;
   height: 59.375rem;
-  background: url(../img/tree.png) no-repeat center center;
+  background: url(../img/tree.png) no-repeat 65% center / 65%;
 }
 .main-info .info-circle {
   box-sizing: border-box;
@@ -358,13 +356,13 @@ header .nav-line .line {
   background: url(../img/circle-young.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle[data-id="defend"] {
-  top: 490px;
-  left: 350px;
+  top: 30.625rem;
+  left: 21.875rem;
   background: url(../img/circle-defend.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle[data-id="rest"] {
-  left: 640px;
-  top: 460px;
+  left: 40rem;
+  top: 28.75rem;
   background: url(../img/circle-rest.png) no-repeat center center / auto 200%;
 }
 .main-info .info-circle.active {
@@ -437,9 +435,10 @@ header .nav-line .line {
   background: url(../img/green-back.jpg);
   font-family: "proxima";
   text-shadow: 1px 1px 1px #000000;
+  line-height: 3.75rem;
 }
 .feedback {
-  padding: 1.25rem 0 3.125rem;
+  padding: 2.5rem 0 6.25rem;
   background: #e8e8e8;
 }
 .feedback .feedb-messages {
@@ -453,7 +452,7 @@ header .nav-line .line {
   position: relative;
   display: inline-block;
   vertical-align: top;
-  width: 23.125rem;
+  width: 20.9375rem;
   margin-right: 4.0625rem;
   background: #fff;
   border-radius: 0.625rem;
@@ -501,6 +500,8 @@ header .nav-line .line {
 }
 footer {
   box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
   width: 100%;
   border-top: 1px solid #e8e8e8;
   padding: 1.875rem 0 1.5625rem;
@@ -557,13 +558,17 @@ footer .footer-bottom .ftr-link {
   background: url(../img/koroed.png) no-repeat center center / 100% auto;
 }
 .info-slider .slide {
+  box-sizing: border-box;
+  min-height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
   padding: 7.5rem 0 9.375rem;
 }
 .info-slider .slide-text {
-  vertical-align: top;
+  position: absolute;
   display: inline-block;
   width: 37.5rem;
-  margin-left: 6.25rem;
+  left: 38.75rem;
 }
 .info-slider .title {
   font-size: 2.625rem;
@@ -610,7 +615,7 @@ footer .footer-bottom .ftr-link {
   width: 42.8125rem;
 }
 .about-top .about-text {
-  margin-bottom: 5.3125rem;
+  margin-bottom: 8.125rem;
   width: 37.5rem;
 }
 .about-top .about-list {
@@ -642,8 +647,8 @@ footer .footer-bottom .ftr-link {
 .about-top .about-poem {
   font-family: 'PT Serif', serif;
   position: absolute;
-  right: 0;
-  top: 1.25rem;
+  right: 3.125rem;
+  top: 2.5rem;
   font-style: italic;
   font-size: 1.9375rem;
   color: #959595;
@@ -691,7 +696,7 @@ footer .footer-bottom .ftr-link {
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
-  width: 23.125rem;
+  width: 20.9375rem;
   margin-right: 4.0625rem;
   margin-bottom: 2.1875rem;
 }
@@ -776,7 +781,7 @@ footer .footer-bottom .ftr-link {
 }
 .about-posts .post-ul li {
   margin-top: 5rem;
-  width: 53.125rem;
+  width: 50rem;
 }
 .about-posts .post-ul li:first-child {
   margin-top: 0;
@@ -789,6 +794,31 @@ footer .footer-bottom .ftr-link {
 .about-posts .post-ul .desc {
   margin-top: 1.25rem;
   font-size: 1.125rem;
+}
+.about-posts .post-ul .post-link {
+  margin-top: 0.625rem;
+}
+.about-posts .post-ul .post-link:after {
+  display: inline-block;
+  margin-left: 0.625rem;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.about-posts .post-ul.exp-ul li {
+  box-sizing: border-box;
+  position: relative;
+  padding-left: 15.625rem;
+  min-height: 10.625rem;
+}
+.about-posts .post-ul.exp-ul .post-photo {
+  position: absolute;
+  border-radius: 5.3125rem;
+  top: 0;
+  left: 0;
+  width: 10.625rem;
+  height: 10.625rem;
+  background-size: cover;
+  background-position: center center;
 }
 .about-posts .post-link {
   margin-top: 3.4375rem;
@@ -811,25 +841,16 @@ footer .footer-bottom .ftr-link {
   font-family: "fontello";
   margin-left: 2.1875rem;
 }
-.parallax .par-item:nth-of-type(1) {
+.parallax {
   position: absolute;
-  width: 11rem;
-  height: 8.1875rem;
   top: 0;
-  -webkit-transform: translateY(400px);
-  transform: translateY(400px);
-  right: 12.5rem;
-  background: url(../img/about-par1.png) no-repeat 0 0 / 100% auto;
-}
-.parallax .par-item:nth-of-type(2) {
-  position: absolute;
-  width: 4.5rem;
-  height: 4.5625rem;
-  top: 0;
-  -webkit-transform: translateY(90px);
-  transform: translateY(90px);
-  right: 14.6875rem;
-  background: url(../img/about-par2.png) no-repeat 0 0 / 100% auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../img/about-par1.png), url(../img/about-par2.png);
+  background-repeat: no-repeat;
+  background-position: 880px 400px, 988px 72px;
+  z-index: -1;
 }
 .us-block {
   padding: 7.5rem 0 6.5625rem;
@@ -850,7 +871,7 @@ footer .footer-bottom .ftr-link {
 .us-block .contact-block {
   display: inline-block;
   vertical-align: top;
-  width: 25rem;
+  width: 18rem;
   margin-left: 4.6875rem;
 }
 .us-block .contact-text {
@@ -869,16 +890,18 @@ footer .footer-bottom .ftr-link {
 .products li .product-photo {
   display: inline-block;
   vertical-align: top;
-  width: 14.375rem;
-  height: 14.375rem;
+  width: 13rem;
+  height: 13rem;
   background-size: contain;
   background-position: center center;
 }
 .products li .product-info {
+  position: relative;
   display: inline-block;
   vertical-align: top;
-  width: 23.4375rem;
+  width: 21.5625rem;
   margin-left: 0.625rem;
+  z-index: 2;
 }
 .products li .product-info .block-title {
   display: inline-block;

@@ -50,55 +50,25 @@ var List = (function(){
 })();
 
 var Parallax = (function(){
+	if(!$('.parallax').length) return;
 
-	return;
+	var cpos = $('.parallax').css('background-position').split(', ');
+	var pos = {
+		0: [parseInt(cpos[0].split(' ')[0]), parseInt(cpos[0].split(' ')[1])],
+		1: [parseInt(cpos[1].split(' ')[0]), parseInt(cpos[1].split(' ')[1])]
+	};
 
-	var parPos = [];
-	var scrollDown;
-
-	var setVars = function() {
-		parPos[0] = $('.par-item').eq(0).offset().top;
-		parPos[1] = $('.par-item').eq(1).offset().top;
-		scrollDown = $(window).scrollTop() + $(window).height();
-	}
-	
-	var set = function() {
-		if(check(0)) {
-			var y1 = Math.round((scrollDown - parPos[0]) / 6) + pos1;
-			$('.par-item').eq(0).attr('style', '-webkit-transform: translateY(' + y1 + 'px); transform: translateY(' + y1 + 'px);');
-		}
-
-		if(check(1)) {
-			var y2 = Math.round((scrollDown - parPos[1]) / 3) + pos2;
-			$('.par-item').eq(1).attr('style', '-webkit-transform: translateY(' + y2 + 'px); transform: translateY(' + y2 + 'px);');
-		}
+	function setPar() {
+		var pos_null = $(window).scrollTop() - $('.parallax').offset().top;
+		var pos1 = pos_null / 3 + pos[0][1];
+		var pos2 = pos_null / 6 + pos[1][1];
+		$('.parallax').css('background-position', pos[0][0] + 'px ' + pos1+ 'px, ' + pos[1][0] + 'px ' + pos2+ 'px');
 	}
 
-	var init = function() {
-		if($('.parallax').length == 0) return;
-
-		$(window).on('scroll', function(){
-			setVars();
-			set();
-		});
-
-		var pos1 = $('.par-item').eq(0).position().top;
-		var pos2 = $('.par-item').eq(1).position().top;
-
-		setVars();
-		set();
-	}
-
-	var check = function(number) {
-		if(parPos[number] < scrollDown && parPos[number] + $('.par-item').eq(number).height() > $(window).scrollTop())
-		{
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	init();
+	setPar();
+	$(window).on('scroll', function(){
+		setPar();
+	});
 
 })();
 

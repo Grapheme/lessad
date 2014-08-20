@@ -12,9 +12,9 @@ class CreateGroupsTable extends Migration {
         	Schema::create($this->table, function(Blueprint $table) {			
         		$table->increments('id');
         		$table->string('name',20)->unique();
-        		$table->string('desc',20);
-        		$table->string('dashboard',20);
-        		$table->string('start_url', 256);
+        		$table->string('desc',20)->nullable();
+        		$table->string('dashboard',20)->nullable();
+        		$table->string('start_url', 256)->nullable();
         		$table->timestamps();
         	});
             echo(' + ' . $this->table . PHP_EOL);
