@@ -144,6 +144,7 @@ class ChannelController extends BaseController {
         if(!Allow::enabled_module('channels')):
             return App::abort(404);
         endif;
+
         try{
             $element = ChannelCategory::where('slug', Request::segment(1))
                 ->with(array('channel' => function ($query) use ($url) {
@@ -151,8 +152,6 @@ class ChannelController extends BaseController {
                     $query->with('images');
                 }))
                 ->first();
-
-            #Helper::tad($element);
 
             if(!$element):
                 return App::abort(404);
