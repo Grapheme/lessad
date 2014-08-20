@@ -25,6 +25,7 @@ $channel = Channel::where('category_id',@$channelCategory->id)->with('images')->
                     <div class="title">{{ $pub->title }}</div>
                     @endif
                     <div class="desc">{{ $pub->short }}</div>
+                    <a href="{{ link::to('experience/'.$pub->link) }}" class="post-link">Подробнее</a>
                 @endforeach
 			</ul>
 		</div>
