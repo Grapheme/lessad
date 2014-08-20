@@ -16,7 +16,6 @@
 			<div class="well">
 				<header>Для создания нового продукта заполните форму:</header>
 				<fieldset>
-
 					<section>
 						<label class="label">Название</label>
 						<label class="input">
@@ -55,6 +54,12 @@
                         <label class="label">Краткое описание</label>
                         <label class="textarea">
                             {{ Form::textarea('desc','',array('class'=>'redactor')) }}
+                        </label>
+                    </section>
+                    <section>
+                        <label class="label">Порадковый номер</label>
+                        <label class="input">
+                            {{ Form::text('sort', 0) }}
                         </label>
                     </section>
 				</fieldset>

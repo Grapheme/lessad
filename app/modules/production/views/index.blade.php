@@ -1,6 +1,6 @@
 <?php
 //<a href="{{-- link::to('catalog/'.$product['link']) --}}">{{-- $product['title'] --}}</a>
-if($products = Product::orderBy('title')->with('images')->get()):
+if($products = Product::orderBy('sort')->orderBy('title')->with('images')->get()):
     $products = $products->toArray();
 endif;
 ?>

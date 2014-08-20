@@ -56,7 +56,12 @@
 							{{ Form::textarea('desc',NULL,array('class'=>'redactor')) }}
 						</label>
 					</section>
-
+                    <section>
+                        <label class="label">Порадковый номер</label>
+                        <label class="input">
+                            {{ Form::text('sort') }}
+                        </label>
+                    </section>
 				</fieldset>
 				<footer>
 					<a class="btn btn-default no-margin regular-10 uppercase pull-left btn-spinner" href="{{ URL::previous() }}">

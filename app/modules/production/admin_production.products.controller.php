@@ -148,7 +148,7 @@ class AdminProductionProductsController extends BaseController {
 
         $cat = Input::get('cat');
 		$products = new Product;
-        $products = is_numeric($cat) ? $products->where('category_id', $cat)->paginate($limit) : $products->paginate($limit);
+        $products = is_numeric($cat) ? $products->orderBy('sort')->where('category_id', $cat)->paginate($limit) : $products->orderBy('sort')->paginate($limit);
 
 		return View::make($this->module['tpl'].'index', compact('products', 'categories', 'cat', 'category'));
 	}
@@ -201,7 +201,7 @@ class AdminProductionProductsController extends BaseController {
 			Product::create($input);
 			#return link::auth('groups');
 
-			$json_request['responseText'] = "Продукт создан создана";
+			$json_request['responseText'] = "Продукт создан";
 			#$json_request['responseText'] = print_r(Input::get('actions'), 1);
 			$json_request['redirect'] = link::auth($this->module['rest']);
 			$json_request['status'] = TRUE;
@@ -245,6 +245,7 @@ class AdminProductionProductsController extends BaseController {
 		}
 
         $input = array(
+            'sort' => Input::get('sort'),
             'title' => Input::get('title'),
             'link' => Input::get('link'),
             'category_id' => Input::get('category_id'),
