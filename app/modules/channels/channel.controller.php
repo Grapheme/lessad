@@ -11,7 +11,7 @@ class ChannelController extends BaseController {
      * и создайте шаблоны с соответствующими именами в каталогие views данного модуля
      */
 
-    public static $prefix_url = array('offer','car-for-sale'); # array of FALSE;
+    public static $prefix_url = array('experience'); # array of FALSE;
     #public static $prefix_url = false; # array of FALSE;
 
     public static function returnRoutes($prefix = null) {
@@ -149,7 +149,6 @@ class ChannelController extends BaseController {
                 ->with(array('channel' => function ($query) use ($url) {
                     $query->where('link', $url);
                     $query->with('images');
-                    $query->with('gallery.photos');
                 }))
                 ->first();
 
@@ -165,11 +164,9 @@ class ChannelController extends BaseController {
             if(method_exists('PagesController','content_render')):
                 $element->desc = PagesController::content_render($element->desc);
             endif;
-
             return View::make($this->tpl.$element->slug,
                 array(
                     'page_title' => $element->title.'. '.$element->channel->first()->title,'page_description' => '','page_keywords' => '','page_author' => '',
-                    'page_h1' => $element->channel->first()->title,
                     'page_h1' => $element->channel->first()->title,
                     'menu' => NULL,
                     'element' => $element

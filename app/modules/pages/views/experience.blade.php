@@ -5,7 +5,7 @@
 
 @section('content')
     {{ $content }}
-    @include('channels/views/experience')
+    @include('channels/views/experiences')
 @stop
 @section('scripts')
 @stop
