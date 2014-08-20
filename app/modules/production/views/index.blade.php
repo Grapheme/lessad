@@ -10,7 +10,7 @@ endif;
         <ul class="products">
             @foreach($products as $product)
             <li>
-                <a class="product-photo" href="{{ link::to('catalog/'.$product['link']) }}" style="background-image: url(uploads/galleries/{{ $product['images']['name'] }});"></a>
+                <a class="product-photo" target="_blank" href="{{ $product['link'] }}" style="background-image: url(uploads/galleries/{{ $product['images']['name'] }});"></a>
                 <div class="product-info">
                     <a class="block-title" target="_blank" href="{{ $product['link'] }}">
                         {{ $product['title'] }}
