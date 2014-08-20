@@ -43,7 +43,7 @@ endif;
                 @foreach($result['reviews'] as $review)
             <li>
                 <div class="search-text">
-                    {{ $review->meta->first()->name }}. {{ Str::words(strip_tags($review->meta->first()->content), 100, ' ...') }}
+                    {{ $review->meta->first()->name }}. {{ Str::words(strip_tags($review->meta->first()->preview), 100, ' ...') }}
                 </div>
                 @endforeach
             @endif
