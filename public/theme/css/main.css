@@ -141,6 +141,9 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+a {
+  color: inherit;
+}
 .wrapper {
   position: relative;
   width: 71.25rem;
@@ -411,6 +414,7 @@ header .nav-line .line {
 }
 .main-info .slider-nav {
   position: absolute;
+  left: 4.375rem;
   bottom: 2.5rem;
   width: 100%;
   text-align: center;
@@ -418,11 +422,12 @@ header .nav-line .line {
 .main-info .slider-nav .slider-dot {
   display: inline-block;
   margin: 0 0.875rem;
-  height: 1.75rem;
-  width: 1.75rem;
+  height: 0.875rem;
+  width: 0.875rem;
   border: 1px solid #5d7e39;
-  border-radius: 0.875rem;
+  border-radius: 50%;
   background: #fff;
+  outline: none;
 }
 .main-info .slider-nav .slider-dot.active {
   background: #5d7e39;
@@ -789,6 +794,7 @@ footer .footer-bottom .ftr-link {
 .about-posts .post-ul .title {
   font-size: 1.5rem;
   color: #000;
+  font-weight: 600;
   text-decoration: none;
 }
 .about-posts .post-ul .desc {
@@ -819,6 +825,9 @@ footer .footer-bottom .ftr-link {
   height: 10.625rem;
   background-size: cover;
   background-position: center center;
+}
+.about-posts .post-ul.exp-ul .post-link {
+  font-size: 1rem;
 }
 .about-posts .post-link {
   margin-top: 3.4375rem;
@@ -877,6 +886,9 @@ footer .footer-bottom .ftr-link {
 .us-block .contact-text {
   margin-bottom: 1.875rem;
 }
+.us-block.us-page {
+  padding-top: 5.625rem;
+}
 .products {
   margin: 0;
   padding: 0;
@@ -904,10 +916,30 @@ footer .footer-bottom .ftr-link {
   z-index: 2;
 }
 .products li .product-info .block-title {
+  position: relative;
   display: inline-block;
   padding-top: 0;
   color: #000;
   text-decoration: none;
+}
+.products li .product-info .block-title:hover:after {
+  margin-left: .6rem;
+  opacity: 1;
+}
+.products li .product-info .block-title:after {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translate(-0.625rem, 0);
+  transform: translate(-0.625rem, 0);
+  content: '';
+  opacity: 0;
+  display: inline-block;
+  height: .85rem;
+  margin-left: -0.3125rem;
+  position: absolute;
+  vertical-align: text-top;
+  width: .85rem;
+  background: url(../img/external.png) no-repeat 0 0 / 95% auto;
 }
 .products li .product-info .product-table {
   margin-top: 1.875rem;
