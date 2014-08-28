@@ -7,7 +7,7 @@ endif;
 @if(count($channel))
 <div class="about-docs">
     <div class="wrapper">
-        <div class="us-title mar-title">Документы</div>
+        <div class="us-title mar-title">Литература</div>
         <ul class="documents">
             @foreach($channel as $doc)
             <li>
