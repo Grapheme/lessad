@@ -22,7 +22,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="footer-bottom">
-            <span>Все права защищены. (с) 2014 ООО «Лессад»</span>
+            <span>Все права защищены. © 2014 ООО «Лессад»</span>
             <span class="fl-r">Сделано в <a href="http://grapheme.ru" target="_blank" class="ftr-link">ГРАФЕМА</a></span>
         </div>
     </div>

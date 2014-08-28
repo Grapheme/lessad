@@ -24,9 +24,7 @@ $channel = Channel::where('category_id',@$channelCategory->id)->take(100)->get()
                 @endforeach
             </ul>
         </div>
-        @if(Channel::where('category_id',100)->count() > 3)
         <a href="javascript::void(0);" class="post-link js-posts">Показать все</a>
-        @endif
     </div>
 </div>
 @endif
