@@ -69,13 +69,19 @@
                     <section>
                         <label class="label">Файл</label>
                         <label class="input input-file" for="file">
-                            <div class="button"><input type="file" onchange="this.parentNode.nextSibling.value = this.value" name="file">Выбрать</div><input type="text" readonly=""">
+                            <div class="button"><input type="file" onchange="this.parentNode.nextSibling.value = this.value" name="file">Выбрать</div><input type="text" readonly="">
                         </label>
                         @if(!empty($channel->file))
                         <div class="note">
                             <strong>Внимание!</strong> Документ загружен ранее
                         </div>
                         @endif
+                    </section>
+                    <section>
+                        <label class="label">Порядковый номер</label>
+                        <label class="input">
+                            {{ Form::text('sort') }}
+                        </label>
                     </section>
 				</fieldset>
 				<footer>

@@ -16,14 +16,12 @@
 			<div class="well">
 				<header>Для создания нового элемента заполните форму:</header>
 				<fieldset>
-
 					<section>
 						<label class="label">Название</label>
 						<label class="input">
 							{{ Form::text('title', '') }}
 						</label>
 					</section>
-
                     <section>
 						<label class="label">Ссылка</label>
 						<label class="input">
@@ -73,7 +71,13 @@
                     <section>
                         <label class="label">Файл</label>
                         <label class="input input-file" for="file">
-                            <div class="button"><input type="file" onchange="this.parentNode.nextSibling.value = this.value" name="file">Выбрать</div><input type="text" readonly=""">
+                            <div class="button"><input type="file" onchange="this.parentNode.nextSibling.value = this.value" name="file">Выбрать</div><input type="text" readonly="">
+                        </label>
+                    </section>
+                    <section>
+                        <label class="label">Порядковый номер</label>
+                        <label class="input">
+                            {{ Form::text('sort',0) }}
                         </label>
                     </section>
                 </fieldset>
