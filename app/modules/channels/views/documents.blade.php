@@ -1,6 +1,6 @@
 <?php
 $channelCategory = ChannelCategory::where('slug','docs')->first();
-if($channel = Channel::where('category_id',@$channelCategory->id)->with('images')->get()):
+if($channel = Channel::where('category_id',@$channelCategory->id)->orderBy('sort')->with('images')->get()):
     $channel = $channel->toArray();
 endif;
 ?>

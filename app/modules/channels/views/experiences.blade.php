@@ -1,6 +1,6 @@
 <?php
 $channelCategory = ChannelCategory::where('slug','experience')->first();
-$channel = Channel::where('category_id',@$channelCategory->id)->with('images')->take(100)->get();
+$channel = Channel::where('category_id',@$channelCategory->id)->orderBy('sort')->with('images')->take(100)->get();
 ?>
 @if($channel->count())
 <div class="about-posts">

@@ -148,7 +148,7 @@ class AdminChannelController extends BaseController {
 
         $cat = Input::get('cat');
 		$channels = new Channel;
-        $channels = is_numeric($cat) ? $channels->where('category_id', $cat)->paginate($limit) : $channels->paginate($limit);
+        $channels = is_numeric($cat) ? $channels->where('category_id', $cat)->orderBy('sort')->paginate($limit) : $channels->paginate($limit);
 
 		return View::make($this->module['tpl'].'index', compact('channels', 'categories', 'cat', 'category'));
 	}
@@ -177,6 +177,7 @@ class AdminChannelController extends BaseController {
 		$json_request = array('status'=>FALSE, 'responseText'=>'', 'responseErrorText'=>'', 'redirect'=>FALSE);
 
 		$input = array(
+            'sort' => Input::get('sort'),
             'title' => Input::get('title'),
             'link' => BaseController::stringTranslite(Input::get('link')),
             'category_id' => Input::get('category_id'),
@@ -243,6 +244,7 @@ class AdminChannelController extends BaseController {
 		}
 
         $input = array(
+            'sort' => Input::get('sort'),
             'title' => Input::get('title'),
             'link' => Input::get('link'),
             'category_id' => Input::get('category_id'),
