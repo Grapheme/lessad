@@ -52,8 +52,6 @@ class BaseController extends Controller {
 
     public function dashboard() {
 
-        Bugsnag::notifyError('ErrorType', 'Test Error');
-
         $parts = array();
         $parts[] = 'templates';
         $parts[] = AuthAccount::getStartPage();
