@@ -17,6 +17,8 @@ $channel = Channel::where('category_id',@$channelCategory->id)->take(100)->get()
                 <li>
                     @if(!empty($pub->link))
                     <a href="{{ link::to($pub->link) }}" class="title">{{ $pub->title }}</a>
+                    @elseif(!empty($pub->file) && File::exists(public_path($pub->file)))
+                    <a href="{{ asset($pub->file) }}" target="_blank" class="title">{{ $pub->title }}</a>
                     @else
                     <div class="title">{{ $pub->title }}</div>
                     @endif
