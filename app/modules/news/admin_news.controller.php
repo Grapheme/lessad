@@ -180,7 +180,7 @@ class AdminNewsController extends BaseController {
 		endif;
 		$news->publication = 1;
 		$news->published_at = date("Y-m-d", strtotime(Input::get('published_at')));
-		$news->slug = Input::get('slug');
+		$news->slug = BaseController::stringTranslite(Input::get('slug'));
         $news->image_id =  Input::get('image');
 		## Сохраняем в БД
         $news->save();
