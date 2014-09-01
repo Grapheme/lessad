@@ -52,7 +52,8 @@ return array(
 		'Intervention\Image\ImageServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
-        'Scalia\SphinxSearch\SphinxSearchServiceProvider'
+        'Scalia\SphinxSearch\SphinxSearchServiceProvider',
+        'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider',
 	),
 	'aliases' => array(
 		'App'             => 'Illuminate\Support\Facades\App',
@@ -95,6 +96,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 
 		'ImageManipulation' => 'Intervention\Image\Facades\Image',
-        'SphinxSearch' => 'Scalia\SphinxSearch\SphinxSearchFacade'
+        'SphinxSearch' => 'Scalia\SphinxSearch\SphinxSearchFacade',
+        'Bugsnag' => 'Bugsnag\BugsnagLaravel\BugsnagFacade',
 	),
 );
