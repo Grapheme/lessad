@@ -81,20 +81,20 @@ var Posts = (function(){
 			closed_h = closed_h + $('.post-ul li').eq(i).outerHeight(true);
 			
 		}
-		$('.posts-window').css('height', closed_h);
+		if($('.post-ul li').length <= 3) {
+			$('.js-posts').addClass('active');
+		} else {
+			$('.posts-window').css('height', closed_h);
+		}
 
 		$(document).on('click', '.js-posts', function(){
 			$(this).addClass('active');
 			$('.posts-window').css('height', $('.post-ul').height());
 			return false;
 		});
-
-		if($('.post-ul li').length <= 3) {
-			$('.js-posts').addClass('active');
-		}
 	}	
 
-	init();
+	return {init: init};
 
 })();
 

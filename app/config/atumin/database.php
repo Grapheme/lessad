@@ -8,7 +8,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'lessad',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'perl04',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

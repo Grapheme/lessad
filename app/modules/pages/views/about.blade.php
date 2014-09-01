@@ -10,5 +10,6 @@
 @include('channels/views/publication')
 @stop
 
-@section('scripts')
+@section('page_script')
+	<script>Posts.init();</script>
 @stop

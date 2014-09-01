@@ -22,5 +22,6 @@
 	@include('templates.site.scripts')
 	@yield('scripts')
     {{ HTML::script('theme/js/main.js') }}
+    @yield('page_script')
 </body>
 </html>
