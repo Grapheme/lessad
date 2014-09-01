@@ -72,7 +72,7 @@
                             <section>
                                 <label class="label">Содержание</label>
                                 <label class="textarea">
-                                    {{ Form::textarea('content['.$locale.']', @$page_meta[$locale]->content, array('class'=>'redactor-no-filter redactor_450')) }}
+                                    {{ Form::textarea('content['.$locale.']', @$page_meta[$locale]->content, array('class'=>'redactor redactor_450')) }}
                                 </label>
                             </section>
                         </fieldset>
