@@ -12,6 +12,7 @@
 	</div>
 	<div class="us-block us-page">
 		<div class="us-title">{{ $news->meta->first()->title }}</div>
+		<div class="date">{{ myDateTime::months($news->published_at) }}</div>
 		{{ $news->meta->first()->content }}
 	</div>
 </div>

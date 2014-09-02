@@ -21,6 +21,7 @@ $news = I18nNews::where('publication',1)->orderBy('published_at','DESC')->with('
                     <div class="post-photo" style="background-image: url(/uploads/galleries/{{ $new->photo->name }})"> </div>
                     @endif
                     <a href="{{ URL::route('news_full',array('url'=>$new->slug)) }}" class="title">{{ $new->meta->first()->title }}</a>
+                    <div class="date">{{ myDateTime::months($new->published_at) }}</div>
                     <div class="desc">{{ $new->meta->first()->preview }}</div>
                     <a href="{{ URL::route('news_full',array('url'=>$new->slug)) }}" class="post-link">Подробнее</a>
                 @endforeach

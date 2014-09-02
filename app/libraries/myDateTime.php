@@ -7,7 +7,14 @@ class myDateTime {
 		$replacement = "\$5.$3.\$1 \$6:\$8";
 		return preg_replace($pattern, $replacement,$date_time);
 	}
-	
+
+    public static function SwapDotDate($date) {
+		$list = preg_split("/-/",$date_time);
+		$pattern = "/(\d+)(-)(\w+)(-)(\d+)/i";
+		$replacement = "\$5.$3.\$1";
+		return preg_replace($pattern, $replacement,$date_time);
+	}
+
 	public static function months($field,$months = NULL){
 		
 		if(is_null($months)):
