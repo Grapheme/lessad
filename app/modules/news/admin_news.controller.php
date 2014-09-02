@@ -109,7 +109,7 @@ class AdminNewsController extends BaseController {
 	public function getEdit($id){
 
         $this->moduleActionPermission('news','edit');
-        if(!$news = $this->news->find($id)->with('meta')->with('images')->first()):
+        if(!$news = $this->news->where('id',$id)->with('meta')->with('images')->first()):
             return App::abort(404);
         endif;
 		$gall = Rel_mod_gallery::where('module', 'news')->where('unit_id', $id)->first();
@@ -147,7 +147,7 @@ class AdminNewsController extends BaseController {
         $this->moduleActionPermission('news', 'delete');
         $json_request = array('status'=>FALSE, 'responseText'=>'');
         if(Request::ajax()):
-            $news = $this->news->find($id);
+            $news = $this->news->where('id',$id)->first();
             if($image = $news->images()->first()):
                 if (!empty($image->name) && File::exists(public_path('uploads/galleries/thumbs/'.$image->name))):
                     File::delete(public_path('uploads/galleries/thumbs/'.$image->name));
