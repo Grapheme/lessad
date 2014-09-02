@@ -17,6 +17,7 @@
                     <li><a {{ (Request::segment(1) == 'about') ? 'class="active"' : '' }} href="{{ link::to('about') }}">О компании</a></li>
                     <li><a {{ (Request::segment(1) == 'catalog') ? 'class="active"' : '' }} href="{{ link::to('catalog') }}">Продукция</a></li>
                     <li><a {{ (Request::segment(1) == 'experience') ? 'class="active"' : '' }} href="{{ link::to('experience') }}">Опыт</a></li>
+                    <li><a {{ (Request::segment(1) == 'blog') ? 'class="active"' : '' }} href="{{ link::to('blog') }}">Блог</a></li>
                     <li><a {{ (Request::segment(1) == 'contacts') ? 'class="active"' : '' }} href="{{ link::to('contacts') }}">Контакты</a></li>
                 </ul>
             </nav>
