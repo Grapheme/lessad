@@ -89,8 +89,8 @@ class DownloadsController extends BaseController {
 			if(!File::exists($uploadPath.'/thumbnail')):
 				File::makeDirectory($uploadPath.'/thumbnail',0777,TRUE);
 			endif;
-			ImageManipulation::make(Input::file('file')->getRealPath())->resize(100)->save($uploadPath.'/thumbnail/thumb_'.$fileName);
-			ImageManipulation::make(Input::file('file')->getRealPath())->resize(600)->save($uploadPath.'/'.$fileName);
+			ImageManipulation::make(Input::file('file')->getRealPath())->resize(100,null)->save($uploadPath.'/thumbnail/thumb_'.$fileName);
+			ImageManipulation::make(Input::file('file')->getRealPath())->save($uploadPath.'/'.$fileName);
 			$file = array('filelink'=>'/uploads/'.$fileName);
 			echo stripslashes(json_encode($file));
 		else:
