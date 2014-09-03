@@ -17,6 +17,7 @@
                 <li><a href="{{ link::to('about') }}">О компании</a></li>
                 <li><a href="{{ link::to('catalog') }}">Продукция</a></li>
                 <li><a href="{{ link::to('experience') }}">Опыт</a></li>
+                <li><a href="{{ link::to('blog') }}">Блог</a></li>
                 <li><a href="{{ link::to('contacts') }}">Контакты</a></li>
             </ul>
         </div>
