@@ -15,7 +15,7 @@ endif;
                     <a class="block-title" target="_blank" href="{{ $product['link'] }}">
                         {{ $product['title'] }}
                     </a>
-                    <!--<div>{{-- $product->category->title --}}</div>-->
+
                     <div class="us-text">
                         {{ $product['short'] }}
                     </div>
