@@ -1,6 +1,6 @@
 <?php
 //<a href="{{-- link::to('catalog/'.$product['link']) --}}">{{-- $product['title'] --}}</a>
-if($products = Product::orderBy('sort')->orderBy('title')->with('images')->get()):
+if($products = Product::orderBy('sort')->orderBy('title')->with('images')->with('category')->get()):
     $products = $products->toArray();
 endif;
 ?>
@@ -15,6 +15,7 @@ endif;
                     <a class="block-title" target="_blank" href="{{ $product['link'] }}">
                         {{ $product['title'] }}
                     </a>
+                    <!--<div>{{ $product->category->title }}</div>-->
                     <div class="us-text">
                         {{ $product['short'] }}
                     </div>

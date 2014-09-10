@@ -11,7 +11,7 @@
 		"doctrine/dbal": "2.5.x-dev",
 		"barryvdh/laravel-debugbar": "1.*",
 		"scalia/sphinxsearch": "0.1.1",
-		"bugsnag/bugsnag-laravel": "v1.0.9"
+		"bugsnag/bugsnag-laravel": "1.0.9"
 	},
 	"autoload": {
 		"classmap": [
