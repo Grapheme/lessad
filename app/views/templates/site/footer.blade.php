@@ -23,7 +23,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="footer-bottom">
-            <span>Все права защищены. © {{ (int) date("Y") > 2014 ? 2014 - date("Y") : date("Y") }} ООО «Лессад»</span>
+            <span>Все права защищены. © 2014 - {{ date("Y") }} ООО «Лессад»</span>
             <span class="fl-r">Сделано в <a href="http://grapheme.ru" target="_blank" class="ftr-link">ГРАФЕМА</a></span>
         </div>
     </div>
