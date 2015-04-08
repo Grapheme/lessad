@@ -4,7 +4,7 @@ class AdminUsersController extends BaseController {
 
     public static $name = 'users';
     public static $group = 'system';
-    
+
     /****************************************************************************/
 
     ## Routing rules of module
@@ -34,15 +34,15 @@ class AdminUsersController extends BaseController {
         return array(
         	'name' => self::$name,
         	'group' => self::$group,
-        	'title' => 'Пользователи', 
+        	'title' => 'Пользователи',
             'visible' => 0,
         );
     }
-    
+
     /****************************************************************************/
-    
+
 	public function __construct(User $user){
-		
+
 		$this->beforeFilter('users');
 
         $this->module = array(
@@ -90,7 +90,7 @@ class AdminUsersController extends BaseController {
         $groups_data = array('' => 'Выберите группу');
 		foreach($groups as $grp) {
 			$groups_data[$grp->id] = $grp->desc;
-		}        
+		}
 		return View::make($this->module['tpl'].'create', compact('groups_data'));
 	}
 
@@ -136,7 +136,7 @@ class AdminUsersController extends BaseController {
         $groups_data = array('' => 'Выберите группу');
 		foreach($groups as $grp) {
 			$groups_data[$grp->id] = $grp->desc;
-		}        
+		}
 
 		$user = User::find($id);
 		return View::make($this->module['tpl'].'edit', compact('user', 'groups', 'groups_data'));
@@ -148,7 +148,7 @@ class AdminUsersController extends BaseController {
 
 		$json_request = array('status'=>FALSE, 'responseText'=>'', 'responseErrorText'=>'', 'redirect'=>FALSE);
 		if(!Request::ajax())
-            return App::abort(404);        
+            return App::abort(404);
 
 		if(!$user = User::find($id)) {
 			$json_request['responseText'] = 'Пользователь не найден';
@@ -162,17 +162,17 @@ class AdminUsersController extends BaseController {
             "active" => (int)(bool)Input::get('active'),
             "group_id" => Input::get('group_id'),
         );
-        
+
         $rules_update = User::$rules_update;
         $rules_update['email'] .= ',' . $user->id;
-        
+
 		$validation = Validator::make($input, $rules_update);
 		if($validation->passes()):
 
             ## Update user
 			$user->update($input);
 			$user->touch();
-			
+
 			$json_request['responseText'] = 'Данные пользователя изменены';
 			#$json_request['responseText'] = "<pre>" . print_r($_POST, 1) . "</pre>";
 			#$json_request['responseText'] = "<pre>" . print_r($input, 1) . "</pre>";
@@ -182,10 +182,10 @@ class AdminUsersController extends BaseController {
 			$json_request['responseText'] = 'Неверно заполнены поля';
 			$json_request['responseErrorText'] = implode($validation->messages()->all(), '<br />');
 		endif;
-        
+
 		return Response::json($json_request, 200);
 	}
-    
+
 
 	public function postChangepass($id){
 
@@ -193,7 +193,7 @@ class AdminUsersController extends BaseController {
 
 		$json_request = array('status'=>FALSE, 'responseText'=>'', 'responseErrorText'=>'', 'redirect'=>FALSE);
 		if(!Request::ajax())
-            return App::abort(404);        
+            return App::abort(404);
 
 		if(Input::get('password1') == '' || Input::get('password2') == '' || Input::get('password1') != Input::get('password2')) {
 			$json_request['responseText'] = 'Пароли должны совпадать';
@@ -208,14 +208,14 @@ class AdminUsersController extends BaseController {
         $input = array(
             'password' => Hash::make(Input::get('password1')),
         );
-        
+
 		$validation = Validator::make($input, User::$rules_changepass);
 		if($validation->passes()):
 
             ## Update user
 			$user->update($input);
 			$user->touch();
-			
+
 			$json_request['responseText'] = 'Пароль пользователя успешно сменен';
 			#$json_request['responseText'] = "<pre>" . print_r($_POST, 1) . "</pre>";
 			#$json_request['responseText'] = "<pre>" . print_r($input, 1) . "</pre>";
@@ -225,10 +225,10 @@ class AdminUsersController extends BaseController {
 			$json_request['responseText'] = 'Неверно заполнены поля';
 			$json_request['responseErrorText'] = implode($validation->messages()->all(), '<br />');
 		endif;
-        
+
 		return Response::json($json_request, 200);
 	}
-    
+
     /****************************************************************************/
 
 	public function deleteDestroy($id){
@@ -244,7 +244,7 @@ class AdminUsersController extends BaseController {
 		$json_request['status'] = TRUE;
 		return Response::json($json_request, 200);
 	}
-    
+
     /****************************************************************************/
 
 }

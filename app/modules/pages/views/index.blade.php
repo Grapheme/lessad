@@ -6,6 +6,7 @@
 
 @section('content')
 {{ $content }}
+@include('channels/views/banners')
 @include('reviews/views/default')
 @stop
 @section('scripts')
